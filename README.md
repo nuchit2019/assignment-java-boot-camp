@@ -22,16 +22,24 @@ JANAWAT E-Commerce System architecture
 2. Choose a product
 ```mermaid
     graph LR
-    SelectProductItem[SelectProductItem] --> ProductItem[ProductItem]
-    ProductItem --> ProductName[ProductName]
-    ProductItem --> Size[Size]
-    ProductItem --> Price[Price]
+    SelectProductItem[SelectProductItem] --> ShwoProductItemDetail[ShwoProductItemDetail]
+    ShwoProductItemDetail --> ProductName[ProductName]
+    ShwoProductItemDetail --> Size[Size]
+    ShwoProductItemDetail --> Price[Price]
 ```
-- 2.1 เลือก item สินค้า
-- 3.แสดงรายละเอียดสินค้า
+
+- 3.Show-Product-Detail
+```mermaid
+    graph LR
+    ShowProductDetail[ShowProductDetail] --> ShowProductDetail[ShowProductDetail]
+    ShowProductDetail --> ProductName[ProductName]
+    ShowProductDetail --> Size[Size]
+    ShowProductDetail --> Price[Price]
+    ShowProductDetail --> ImageList[ImageList]
+```
 - 3.1 แสดงชื่อ
 - 3.2 ขนาด ... สามารถเลือกได้
--  3.3 ราคา
+- 3.3 ราคา
 4. Add product to basket
 - 4.1 กดปุ่ม ใส่ตะกร้า
 5. Show data in basket
