@@ -1,51 +1,72 @@
 # JANAWAT E-Commerce System
 ### Process 
 ```mermaid
- graph TD
-A0[Start] --> A2[1. SearchProductByname]
-A2 --> A3[Enter = Adidas NMD]
-A3 --> A4[Click Find Button]
-A4 --> B0[Display Product 5 Item]
-B0 --> B1[ProductName] 
-B0 --> B2[ProductPrice]
-B0 --> B3[ProductOldPrice]
-B0 --> B4[Product%Discount]
-B0 --> |Select Product Item|C0[2. Choose a product item]
-C0 --> C1["3. Show product detail"]
-C1 --> C2["Show List Product Image"]
-C1 --> C3["Show Product Attribute"]
-C1 --> C4["Show Price"]
-C1 --> C5["Show OldPrice"]
-C1 -->|Select Product Item|D0["4. Add Product to basket"]
-D0 --> D1["4.1 Click add to cart button"]
-D1 --> D2["Show List Product Image"]
-D1 --> D3["Show Product Attribute"]
-D1 --> D4["Show Price"]
-D1 --> D5["Show OldPrice"]
-D1 --> E0["5. Show data in basket"]
-E0 --> E1["Show num product in basket"]
-E1 --> E2["Show List product detail in basket"]
-E1 --> E3["Show product sum price"] 
-E0 --> F0["6. Check out"] 
-F0 --> F1["Show num product in basket"]
-F1 --> F2["Show List product detail in basket"]
-F1 --> F3["Show product sum price"]
-F1 --> G0["7. Shipping"] 
-G0 --> G1["Show Shiipping Address"]
-G1 --> G2["Show Order Detail"] 
-G0 --> H0["8. Payment"] 
-H0 --> H1["Payment Method = PayPal/Amex"] 
-H1 --> H2["Show Shiipping Address"]
-H1 --> H3["Show Order Detail"] 
-H0 --> I0["9. Confirm to order"] 
-I0 --> J0["10. Summary"] 
-J0 --> J1["Show PaySlip Detail"] 
-J0 --> J2["Show Amount"] 
-J0 --> J3["END"]
-classDef plain fill:#ddd,stroke:#fff,color:#000;
-    classDef ja fill:#326ce5,stroke:#fff,color:#fff;    
-    class A1,A0,A2,A3,A4,B0,C0,C1,D0,D1,E0,F1,F0,G0,H0,I0,J0 ja;
+flowchart LR
+    A0((START)) --> A1
+    A1["1.Search product by name"] -->|"ระบุช่องค้นหา = Adidas NMD"| B[/"กดปุ่มค้นหา"/]
+    B --> B1{"มีสินค้า"}
+    B1 -->|NO| B2["แสดงข้อความ ไม่มีสินค้า"]
+    B1 -->|YES| B3[\"แสดงรายการสินค้า 5 รายการ"/]
+
+    db[[H2.Database]] -->B3
+    B3-->B11[[Product Detail]]
+    B11 --> |Product Name|B51((.))
+    B11 --> |Product Price|B52((.))
+    B11 --> |Product Old Price|B53((.))
+    B11 --> |"Product % discount"|B54((.))
+    B3 -->C[/2. Choose a product item/]
     
+    C --> C1[/"3. Show product detail"/]
+    C1-->C11[[Product Detail]]
+    C11 --> |Product Image list|C2(("."))
+    C11 --> |Product Attribute|C3((.))
+    C11 --> |Product Attribute|C4((.))
+    C11 --> |"Show OldPrice"|C5((.))
+    C1 --> |Select Product Item|D[/"4. Add Product to basket"/]
+    D --> E[\"5. Show data in basket"/]
+    E-->E11[[Product Detail]]
+    E11 --> |Product Image list|E2(("."))
+    E11 --> |Product Attribute|E3((.))
+    E11 --> |Product Attribute|E4((.))
+    E11 --> |"Show OldPrice"|E5((.))
+
+    E --> F[/"6. Check out"/] 
+    F--> F11[[Product Detail]]
+    F11 --> |Product Image list|F2(("."))
+    F11 --> |Product Attribute|F3((.))
+    F11 --> |Product Attribute|F4((.))
+    F11 --> |"Show OldPrice"|F5((.))
+    
+    F -->|Submite Check out button| G[/"7. Shipping"/] 
+    G --> G1[["Show Shiipping Address"]]
+    G1 --> |email|G2(("."))
+    G1 --> |fullName|G3((.))
+    G1 --> |address|G5((.))
+    G1 --> |poscode|G6((.))
+    G1 --> |province|G7((.))
+    G1 --> |phone|G8((.))
+    G --> H[/"8. Payment"/] 
+    H -->H1[[Show Shiipping detail]] 
+    H1 --> H2["customer fullName"]
+    H1 --> H3["shipping Address detail"] 
+    H1 --> H4["SummarOrder"] 
+    H1 --> H5["ListOrderDetail"] 
+    H --> I0["Select Payment method"] 
+    I0--> I[9. Confirm to order]
+    I -->I1[[Show Shiipping detail]] 
+    I1 --> I2["customer fullName"]
+    I1 --> I3["shipping Address detail"] 
+    I1 --> I4["SummarOrder"] 
+    I1 --> I5["ListOrderDetail"] 
+    I --> J["10. Summary"] 
+    J --> J1[["Show PaySlip Detail"]] 
+    J --> J2["Show Amount"] 
+    B2 --> X{{End}} 
+    J--> X{{End}} 
+   
+    classDef plain fill:#ddd,stroke:#fff,color:#000;
+    classDef ja fill:#326ce5,stroke:#fff,color:#fff;    
+    class A0,A1,B,B1,B3,C,C1,D,E,F,G,H,I0,I,J ja;
 ```
 ### Architecture
 JANAWAT E-Commerce System architecture
