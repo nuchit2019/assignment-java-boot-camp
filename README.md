@@ -76,11 +76,12 @@ JANAWAT E-Commerce System architecture
 #### 8. Payment
 ```mermaid
     graph LR
-    Payment[Payment] --> ShowUserAddressForm[ShowUserAddressForm]
-    ShowUserAddressForm --> ShowOrderSummary[ShowOrderSummary]
-    ShowUserAddressForm --> ShowCheckBoxConFirmTaxSlip[ShowCheckBoxConFirmTaxSlip]
-    ShowUserAddressForm --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
-    ShowUserAddressForm --> ShowNextButton[ShowNextButton]
+    Payment[Payment] --> ShowShippingDetail[ShowShippingDetail]
+    ShowShippingDetail --> ShowButtonEditAddressShipping[ShowButtonEditAddressShipping]
+    ShowShippingDetail --> ShowOrdersummary[ShowOrdersummary]
+    ShowShippingDetail --> ShowAddCoupon[ShowAddCoupon]
+    Payment[Payment]  --> ShowOptionsPayment[ShowOptionsPayment]
+    ShowOptionsPayment --> ShowOrderButton[ShowOrderButton]
 ```
 #### 9 Comfirm to order
 ```mermaid
