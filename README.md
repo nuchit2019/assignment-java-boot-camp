@@ -1,5 +1,5 @@
 # JANAWAT E-Commerce System
-### Process 
+### Process
 #### 1. Search product by name
 ```mermaid
     graph LR
@@ -31,7 +31,7 @@
     ShowProductDetail --> Price[Price]
     ShowProductDetail --> ImageList[ImageList]
     ShowProductDetail --> ClickAddButton[ClickAddButton]
-``` 
+```
 #### 5. Show data in basket
 ```mermaid
     graph LR
@@ -103,48 +103,48 @@ JANAWAT E-Commerce System architecture
 ```
 #### Entity Relationship Diagram
 ```mermaid
-    erDiagram
-    USER ||--o{ CUSTOMER : places
-    USER {        
+   erDiagram
+   USER ||--o{ CUSTOMER : places
+   USER {        
         int userId       
         string userName
         string password
         string email
-    }
-    USER ||--|{ CUSTOMER : places 
-    SHIPPING_ADDRESS ||--o{ CUSTOMER : places
-    SHIPPING_ADDRESS {        
+   }
+   USER ||--|{ CUSTOMER : places 
+   SHIPPING_ADDRESS ||--o{ CUSTOMER : places
+   SHIPPING_ADDRESS {        
         string houseNo       
         string district
         string province
         string postcode
-    }
-    SHIPPING_ADDRESS ||--|{ ORDER_DETAIL : contains
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER {
+   }
+   SHIPPING_ADDRESS ||--|{ ORDER_DETAIL : contains
+   CUSTOMER ||--o{ ORDER : places
+   CUSTOMER {
         int customerId
         string first_name
         string last_name
         string phone
-    }
-    ORDER ||--|{ ORDER_DETAIL : contains
-    ORDER {
+   }
+   ORDER ||--|{ ORDER_DETAIL : contains
+   ORDER {
         int orderNumber
         string deliveryAddress
-    }
-    ORDER_DETAIL {
+   }
+   ORDER_DETAIL {
         string productCode
         int quantity
         float pricePerUnit
-    }
-    PRODUCT ||--|{ ORDER_DETAIL : contains
-    PRODUCT {
+   }
+   PRODUCT ||--|{ ORDER_DETAIL : contains
+   PRODUCT {
         int productId
         string productName
-    }
+   }
 ```
 
-**Test cases**  
+**Test cases**
 
 |   | Story | Insert | Total | Selected | Got item? | Change |
 |---|-------|------------------|------------|-----------|----------|------------|
@@ -153,7 +153,6 @@ JANAWAT E-Commerce System architecture
 | 3 |User insert 10 baht and 2 baht coins and select Pepsi Max but can't select it because user don't have enough money|10, 2|12|Pepsi Max|false|-|
 | 4 |User insert 10 baht and 2 baht coins and select Coke Vanilla (S) but can't select it because this product isn't available|10, 2|12|Coke Vanilla (S)|false|-|
 | 6 |User insert 10 baht (2 coins) and 2 baht (1 coin) but user would like to refund|10, 10, 2|22|-|false|10, 10, 2|
-
 
 Product listing
 ---
@@ -166,7 +165,8 @@ Acceptance agreement
 ---
 
 1. Fork this github project.
-2. Open `issue` feature in your repository (Options > Features > Checked on Issues) [#Reference](https://softwareengineering.stackexchange.com/questions/179468/forking-a-repo-on-github-but-allowing-new-issues-on-the-fork)
+2. Open `issue` feature in your repository (Options > Features > Checked on
+   Issues) [#Reference](https://softwareengineering.stackexchange.com/questions/179468/forking-a-repo-on-github-but-allowing-new-issues-on-the-fork)
 3. Put your code in `exercise` folder.
 4. Publish your project on hosting, cloud or something that we can play it :) (DigitalOcean, Firebase Hosting, Heroku)
 
