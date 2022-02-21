@@ -6,9 +6,9 @@ JANAWAT E-Commerce System architecture
     graph LR
     Client[Client] -->|HTTP| Controller[Controller]
     Controller --> Service[Service]
-    Service -->Repo[Repository]
-    Repository -->H2[Database]
+    Service -->Repository[Repository]    
     Service -->Gateway[Gateway]
+    Repository -->H2[Database]
 ```
 
 1. Search product by name
