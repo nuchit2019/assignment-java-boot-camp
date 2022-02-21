@@ -94,34 +94,21 @@
 ### Architecture
 JANAWAT E-Commerce System architecture
 ```mermaid
-
-[//]: # (    graph TD)
-
-[//]: # (    A[Client] -->|HTTP| B&#40;Controller&#41;)
-
-[//]: # (    B --> S&#40;Service&#41;)
-
-[//]: # (    S --> R&#40;Repository&#41;)
-
-[//]: # (    S --> G&#40;Gateway&#41;)
-
-[//]: # (    R --> H&#40;H2-Database&#41;  )
-
-graph LR;
- client([client])-. HTTP Request<br>  .->Controller[Controller];
- Controller-->|routing rule|service[Service];
- subgraph JANAWAT-Service
- Controller;
- service-->pod1[Repository];
- service-->pod2[Gateway];
- pod1-->H2[H2.Database];
- end
- classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
- classDef ja fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff;
- classDef JANAWAT-Service fill:#fff,stroke:#bbb,stroke-width:2px,color:#326ce5;
- class Controller,service,pod1,pod2,Repository,H2 ja;
- class client plain;
- class JANAWAT-Service JANAWAT-Service;
+    graph LR;
+    client([client])-. HTTP Request<br>  .->Controller[Controller];
+    Controller-->|routing rule|service[Service];
+    subgraph JANAWAT-Service
+    Controller;
+    service-->pod1[Repository];
+    service-->pod2[Gateway];
+    pod1-->H2[H2.Database];
+    end
+    classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
+    classDef ja fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff;
+    classDef JANAWAT-Service fill:#fff,stroke:#bbb,stroke-width:2px,color:#326ce5;
+    class Controller,service,pod1,pod2,Repository,H2 ja;
+    class client plain;
+    class JANAWAT-Service JANAWAT-Service;
 ```
 #### Entity Relationship Diagram
 ```mermaid
