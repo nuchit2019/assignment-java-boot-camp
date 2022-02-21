@@ -115,7 +115,7 @@ JANAWAT E-Commerce System architecture
    erDiagram
    USER ||--o{ CUSTOMER : owns
    USER {        
-        int userId       
+        int id       
         string userName
         string password
         string email
@@ -140,7 +140,8 @@ JANAWAT E-Commerce System architecture
    SHIPPING_ADDRESS ||--|{ ORDER_DETAIL : contains
    CUSTOMER ||--o{ ORDER : places
    CUSTOMER {
-        int customerId 
+        int id 
+        int userId
         string firstName
         string lastName
         string phone
@@ -179,13 +180,13 @@ JANAWAT E-Commerce System architecture
    }
    PRODUCT_CATEGORY ||--|{ PRODUCT : contains   
    PRODUCT_CATEGORY {
-        int categoryId
+        int id
         string categoryName
    }
    
    PRODUCT ||--|{ ORDER_DETAIL : contains  
    PRODUCT {
-        int productId
+        int id
         string productName
         double price
         double oldprice
@@ -194,7 +195,7 @@ JANAWAT E-Commerce System architecture
    PRODUCT_ATTRIBUTE ||--|{ PRODUCT : contains
    PRODUCT_ATTRIBUTE ||--|{ SHOPPINCARD_DETAIL : contains
    PRODUCT_ATTRIBUTE {
-        int Id
+        int id
         int productId
         string color
         string size
@@ -207,7 +208,7 @@ JANAWAT E-Commerce System architecture
    
    PRODUCT_IMAGE_LIST ||--|{ PRODUCT : contains
    PRODUCT_IMAGE_LIST {
-        int Id
+        int id
         int productId
         string imageName
         string urlImage
