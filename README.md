@@ -86,17 +86,20 @@ JANAWAT E-Commerce System architecture
 #### 9 Comfirm to order
 ```mermaid
     graph LR
-    ComfirmOrder[ComfirmOrder] --> ShowPaymentSlip[ShowPaymentSlip]
-    ShowPaymentSlip --> ShowAmount[ShowAmount]
-    ShowPaymentSlip --> ShowTex[ShowTex]
-    ShowPaymentSlip --> ShowPrintButton[ShowPrintButton] 
+    ComfirmOder[ComfirmOder] --> ShowShippingDetail[ShowShippingDetail]
+    ShowShippingDetail --> ShowButtonEditAddressShipping[ShowButtonEditAddressShipping]
+    ShowShippingDetail --> ShowOrdersummary[ShowOrdersummary]
+    ShowShippingDetail --> ShowAddCoupon[ShowAddCoupon]
+    Payment[Payment]  --> ShowOptionsPayment[ShowOptionsPayment]
+    ShowOptionsPayment --> SelectCreditOrDebit(SelectCreditOrDebit)
+    SelectCreditOrDebit --> ShowOrderButton[ShowOrderButton]
 ```
 #### 10. Summary
 ```mermaid
     graph LR
     OrderSummary[OrderSummary] --> ShowPaymentSlip[ShowPaymentSlip]
     ShowPaymentSlip --> ShowAmount[ShowAmount]
-    ShowPaymentSlip --> ShowTex[ShowTex]
+    ShowPaymentSlip --> ShowMessageSummaryPaySlip[ShowMessageSummaryPaySlip]
     ShowPaymentSlip --> ShowPrintButton[ShowPrintButton] 
 ```
 
