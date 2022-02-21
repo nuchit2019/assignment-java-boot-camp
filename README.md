@@ -1,95 +1,53 @@
 # JANAWAT E-Commerce System
-### Process
-#### 1. Search product by name
+### Process 
 ```mermaid
-    graph LR
-    SearchProductByName[SearchProductByName] --> ShwoProductDetail[ShwoProductDetail]
-    ShwoProductDetail --> ShwoProduct5Item[ShwoProductItem-5-Item]
-```
-#### 2. Choose a product
-```mermaid
-    graph LR
-    SelectProductItem[SelectProductItem] --> ShwoProductItemDetail[ShwoProductItemDetail]
-    ShwoProductItemDetail --> ProductName[ProductName]
-    ShwoProductItemDetail --> Size[Size]
-    ShwoProductItemDetail --> Price[Price]
-```
-#### 3.Show-Product-Detail
-```mermaid
-    graph LR
-    SelectProductItem[SelectProductItem] --> ShowProductDetail[ShowProductDetail]
-    ShowProductDetail --> ProductName[ProductName]
-    ShowProductDetail --> Size[Size]
-    ShowProductDetail --> Price[Price]
-    ShowProductDetail --> ImageList[ImageList]
-```
-#### 4. Add product to basket
-```mermaid
-    graph LR
-    SelectProductItem[SelectProductItem] --> ShowProductDetail[ShowProductDetail]
-    ShowProductDetail --> Size[Size]
-    ShowProductDetail --> Price[Price]
-    ShowProductDetail --> ImageList[ImageList]
-    ShowProductDetail --> ClickAddButton[ClickAddButton]
-```
-#### 5. Show data in basket
-```mermaid
-    graph LR
-    ShowDataInBasket[ShowDataInBasket] --> ShowProductDetail[ShowProductDetail]
-    ShowProductDetail --> ShowCheckoutButton[ShowCheckoutButton]
-    ShowProductDetail --> ShowProductSelectionButton[ShowProductSelectionButton]
-    ShowProductDetail --> Size[Size]
-    ShowProductDetail --> Price[Price]
-    ShowProductDetail --> ProductImage[ProductImage]
-```
-#### 6. Checkout
-```mermaid
-    graph LR
-    Checkout[Checkout] --> ShowProductDetail[ShowProductDetail]
-    ShowProductDetail --> ShowCheckoutButton[ShowCheckoutButton]
-    ShowProductDetail --> ShowProductSelectionButton[ShowProductSelectionButton]
-    ShowProductDetail --> Size[Size]
-    ShowProductDetail --> Price[Price]
-    ShowProductDetail --> ProductImage[ProductImage]
-```
-#### 7. Shipping
-```mermaid
-    graph LR
-    Shipping[Shipping] --> ShowUserAddressForm[ShowUserAddressForm]
-    ShowUserAddressForm --> ShowOrderSummary[ShowOrderSummary]
-    ShowUserAddressForm --> ShowCheckBoxConFirmTaxSlip[ShowCheckBoxConFirmTaxSlip]
-    ShowUserAddressForm --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
-    ShowUserAddressForm --> ShowNextButton[ShowNextButton]
-```
-#### 8. Payment
-```mermaid
-    graph LR
-    Payment[Payment] --> ShowShippingDetail[ShowShippingDetail]
-    ShowShippingDetail --> ShowButtonEditAddressShipping[ShowButtonEditAddressShipping]
-    ShowShippingDetail --> ShowOrdersummary[ShowOrdersummary]
-    ShowShippingDetail --> ShowAddCoupon[ShowAddCoupon]
-    Payment[Payment]  --> ShowOptionsPayment[ShowOptionsPayment]
-    ShowOptionsPayment --> ShowOrderButton[ShowOrderButton]
-```
-#### 9 Comfirm to order
-```mermaid
-    graph LR
-    ComfirmOder[ComfirmOder] --> ShowShippingDetail[ShowShippingDetail]
-    ShowShippingDetail --> ShowButtonEditAddressShipping[ShowButtonEditAddressShipping]
-    ShowShippingDetail --> ShowOrdersummary[ShowOrdersummary]
-    ShowShippingDetail --> ShowAddCoupon[ShowAddCoupon]
-    ComfirmOder[ComfirmOder] -->Payment[Payment] 
-    Payment  --> ShowOptionsPayment[ShowOptionsPayment]
-    ShowOptionsPayment --> SelectCreditOrDebit(SelectCreditOrDebit)
-    SelectCreditOrDebit --> ShowOrderButton[ShowOrderButton]
-```
-#### 10. Summary
-```mermaid
-    graph LR
-    OrderSummary[OrderSummary] --> ShowPaymentSlip[ShowPaymentSlip]
-    ShowPaymentSlip --> ShowAmount[ShowAmount]
-    ShowPaymentSlip --> ShowMessageSummaryPaySlip[ShowMessageSummaryPaySlip]
-    ShowPaymentSlip --> ShowPrintButton[ShowPrintButton] 
+graph TD
+A0[Start] -->|Get money|A1(Go shopping)
+A1 --> A2[1. SearchProductByname]
+A2 --> A3[Enter = Adidas NMD]
+A3 --> A4[Click Find Button]
+A4 --> B0[Display Product 5 Item]
+B0 --> B1[ProductName] 
+B0 --> B2[ProductPrice]
+B0 --> B3[ProductOldPrice]
+B0 --> B4[Product%Discount]
+B0 --> C0[2. Choose a product item]
+C0 --> C1["3. Show product detail"]
+C1 --> C2["Show List Product Image"]
+C1 --> C3["Show Product Attribute"]
+C1 --> C4["Show Price"]
+C1 --> C5["Show OldPrice"]
+C1 --> D0["4. Add Product to basket"]
+D0 --> D1["4.1 Click add to cart button"]
+D1 --> D2["Show List Product Image"]
+D1 --> D3["Show Product Attribute"]
+D1 --> D4["Show Price"]
+D1 --> D5["Show OldPrice"]
+D1 --> E0["5. Show data in basket"]
+E0 --> E1["Show num product in basket"]
+E1 --> E2["Show List product detail in basket"]
+E1 --> E3["Show product sum price"] 
+E0 --> F0["6. Check out"] 
+F0 --> F1["Show num product in basket"]
+F1 --> F2["Show List product detail in basket"]
+F1 --> F3["Show product sum price"]
+F1 --> G0["7. Shipping"] 
+G0 --> G1["Show Shiipping Address"]
+G1 --> G2["Show Order Detail"] 
+G0 --> H0["8. Payment"] 
+H0 --> H1["Payment Method = PayPal/Amex"] 
+H1 --> H2["Show Shiipping Address"]
+H1 --> H3["Show Order Detail"] 
+H0 --> I0["9. Confirm to order"] 
+I0 --> J0["10. Summary"] 
+J0 --> J1["Show PaySlip Detail"] 
+J0 --> J2["Show Amount"] 
+J0 --> J3["END"]
+classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
+    classDef ja fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff;
+    classDef JANAWAT-Service fill:#fff,stroke:#bbb,stroke-width:2px,color:#326ce5;
+    class A1,A0,A2,A3,A4,B0,C0,C1,D0,D1,E0,F1,F0,G0,H0,I0,J0 ja;
+    class client plain;
 ```
 ### Architecture
 JANAWAT E-Commerce System architecture
