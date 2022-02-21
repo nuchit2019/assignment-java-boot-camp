@@ -90,7 +90,8 @@ JANAWAT E-Commerce System architecture
     ShowShippingDetail --> ShowButtonEditAddressShipping[ShowButtonEditAddressShipping]
     ShowShippingDetail --> ShowOrdersummary[ShowOrdersummary]
     ShowShippingDetail --> ShowAddCoupon[ShowAddCoupon]
-    Payment[Payment]  --> ShowOptionsPayment[ShowOptionsPayment]
+    ComfirmOder[ComfirmOder] -->Payment[Payment] 
+    Payment  --> ShowOptionsPayment[ShowOptionsPayment]
     ShowOptionsPayment --> SelectCreditOrDebit(SelectCreditOrDebit)
     SelectCreditOrDebit --> ShowOrderButton[ShowOrderButton]
 ```
