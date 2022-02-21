@@ -104,14 +104,14 @@ JANAWAT E-Commerce System architecture
 #### Entity Relationship Diagram
 ```mermaid
    erDiagram
-   USER ||--o{ CUSTOMER : places
+   USER ||--o{ CUSTOMER : owns
    USER {        
         int userId       
         string userName
         string password
         string email
    }
-   USER ||--|{ CUSTOMER : places 
+   
    SHIPPING_ADDRESS ||--o{ CUSTOMER : places
    SHIPPING_ADDRESS {        
         string houseNo       
