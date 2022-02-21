@@ -16,7 +16,7 @@ JANAWAT E-Commerce System architecture
 ```mermaid
     graph LR
     SearchProductByName[SearchProductByName] --> ShwoProduct Detail[ShwoProductDetail]
-    ShwoProductDetail --> ProductDetail[ProductDetail_5_Item]
+    ShwoProductDetail --> ProductDetail[ProductDetail-5-Item]
 ```
 
 - 1.1 ป้อน Adidas NMD
