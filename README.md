@@ -121,49 +121,96 @@ JANAWAT E-Commerce System architecture
         string email
    }   
    SHIPPING_ADDRESS ||--o{ CUSTOMER : places
-   SHIPPING_ADDRESS {        
+   SHIPPING_ADDRESS {  
+        int id      
         string houseNo       
         string district
         string province
         string postcode
    }
+   CUSTOMER_ADDRESS_MAPPING ||--o{ CUSTOMER : places
+   CUSTOMER_ADDRESS_MAPPING ||--o{ SHIPPING_ADDRESS : places
+   CUSTOMER_ADDRESS_MAPPING {  
+        int id      
+        int customerId       
+        int shippingAddressId
+        string addressType
+   }
+   
    SHIPPING_ADDRESS ||--|{ ORDER_DETAIL : contains
    CUSTOMER ||--o{ ORDER : places
    CUSTOMER {
-        int customerId
-        string first_name
-        string last_name
+        int customerId 
+        string firstName
+        string lastName
         string phone
    }
    ORDER ||--|{ ORDER_DETAIL : contains
    ORDER {
-        int orderNumber
-        string deliveryAddress
+        int id
+        int customerId
+        int shippingAddressId
+        datetime createdDate
+        string typeShipping
+        string paymentMethod        
    }
    ORDER_DETAIL {
-        string productCode
-        int quantity
-        float pricePerUnit
+        int orderId
+        int productAttributeId
+        int qty
+        double price
+        double sumprice
    }
    SHOPPINCARD ||--o{ CUSTOMER : places
    SHOPPINCARD {
+        int id
         int customerId
-        string first_name
-        string last_name
-        string phone
+        int shippingId
+        datetimt createdDate
+        datetimt updatedDate       
+        
    }
    SHOPPINCARD_DETAIL ||--o{ SHOPPINCARD : places
    SHOPPINCARD_DETAIL {
-        int customerId
-        string first_name
-        string last_name
-        string phone
+        int shoppingCardId
+        int productAttributeId
+        int qty
+        double price         
    }
-   PRODUCT ||--|{ ORDER_DETAIL : contains
-   PRODUCT ||--|{ SHOPPINCARD_DETAIL : contains
+   PRODUCT_CATEGORY ||--|{ PRODUCT : contains   
+   PRODUCT_CATEGORY {
+        int categoryId
+        string categoryName
+   }
+   
+   PRODUCT ||--|{ ORDER_DETAIL : contains  
    PRODUCT {
         int productId
         string productName
+        double price
+        double oldprice
+             
+   }
+   PRODUCT_ATTRIBUTE ||--|{ PRODUCT : contains
+   PRODUCT_ATTRIBUTE ||--|{ SHOPPINCARD_DETAIL : contains
+   PRODUCT_ATTRIBUTE {
+        int Id
+        int productId
+        string color
+        string size
+        double price
+        double oldprice
+        int qtyInStock
+        int qtyTotall
+        int qtyMinimum  
+   }
+   
+   PRODUCT_IMAGE_LIST ||--|{ PRODUCT : contains
+   PRODUCT_IMAGE_LIST {
+        int Id
+        int productId
+        string imageName
+        string urlImage
    }
 ```
 **Test cases**
