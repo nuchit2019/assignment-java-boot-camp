@@ -1,5 +1,6 @@
 JANAWAT E-Commerce System
 ===
+
 ### Architecture
 JANAWAT E-Commerce System architecture
 ```mermaid
@@ -12,6 +13,12 @@ JANAWAT E-Commerce System architecture
 ```
 
 1. Search product by name
+```mermaid
+    graph LR
+    SearchProductByName[SearchProductByName] --> ShwoProductDetail[ShwoProductDetail]
+    ShwoProductDetail --> ProductDetail[ProductDetail5Item]
+```
+
 - 1.1 ป้อน Adidas NMD
 - 1.2 แสดงจำนวน 350 ค้นพบสิค้า สำหรับ Adidas NMD
 - 1.3 แสดงรายละเอียดสินค้า 5 item
