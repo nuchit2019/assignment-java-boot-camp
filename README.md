@@ -19,10 +19,14 @@ JANAWAT E-Commerce System architecture
     ShwoProductDetail --> ShwoProduct5Item[ShwoProductItem-5-Item]
 ```
 
-- 1.1 ป้อน Adidas NMD
-- 1.2 แสดงจำนวน 350 ค้นพบสิค้า สำหรับ Adidas NMD
-- 1.3 แสดงรายละเอียดสินค้า 5 item
 2. Choose a product
+```mermaid
+    graph LR
+    SelectProductItem[SelectProductItem] --> ProductItem[ProductItem]
+    ProductItem --> ProductName[ProductName]
+    ProductItem --> Size[Size]
+    ProductItem --> Price[Price]
+```
 - 2.1 เลือก item สินค้า
 - 3.แสดงรายละเอียดสินค้า
 - 3.1 แสดงชื่อ
