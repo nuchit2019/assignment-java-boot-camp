@@ -11,12 +11,12 @@ JANAWAT E-Commerce System architecture
     Service -->Gateway[Gateway]
     Repository -->H2[H2-Database]
 ```
-
+#Process 
 1. Search product by name
 ```mermaid
     graph LR
-    SearchProductByName[SearchProductByName] --> ShwoProductDetail[ShwoProductDetail]
-    ShwoProductDetail --> ProductDetail[ProductDetail5Item]
+    SearchProductByName[SearchProductByName] --> ShwoProduct-Detail[ShwoProductDetail]
+    ShwoProduct-Detail --> Product-Detail[ProductDetail-5-Item]
 ```
 
 - 1.1 ป้อน Adidas NMD
