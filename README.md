@@ -12,7 +12,7 @@ JANAWAT E-Commerce System architecture
     Repository -->H2[H2-Database]
 ```
 ### Process 
-#### Search product by name
+#### 1. Search product by name
 ```mermaid
     graph LR
     SearchProductByName[SearchProductByName] --> ShwoProductDetail[ShwoProductDetail]
@@ -82,10 +82,10 @@ JANAWAT E-Commerce System architecture
     SelectTypePayment --> บัตรเครดิตหรือเดบิต[บัตรเครดิตหรือเดบิต]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> payPal/Amex[payPal/Amex]
+    SelectTypePayment --> payPal-Amex[payPal-Amex]
     SelectTypePayment --> ผ่อนชำระ[ผ่อนชำระ]
     SelectTypePayment --> LINEPay[LINEPay]
-    SelectTypePayment --> หักบัญชีธนาคาร/ช่องทางหรือATM[หักบัญชีธนาคาร/ช่องทางหรือATM]
+    SelectTypePayment --> หักบัญชีธนาคาร-ช่องทางหรือATM[หักบัญชีธนาคาร-ช่องทางหรือATM]
     ShowPaymentDetail --> ShowShippingDetail[ShowShippingDetail]
     ShowPaymentDetail --> ShowAddCouponForm[ShowAddCouponForm]
     ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
@@ -98,10 +98,10 @@ JANAWAT E-Commerce System architecture
     SelectTypePayment --> บัตรเครดิตหรือเดบิต[บัตรเครดิตหรือเดบิต]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> payPal/Amex[payPal/Amex]
+    SelectTypePayment --> payPal-Amex[payPal-Amex]
     SelectTypePayment --> ผ่อนชำระ[ผ่อนชำระ]
     SelectTypePayment --> LINEPay[LINEPay]
-    SelectTypePayment --> หักบัญชีธนาคาร/ช่องทางหรือATM[หักบัญชีธนาคาร/ช่องทางหรือATM]
+    SelectTypePayment --> หักบัญชีธนาคาร-ช่องทางหรือATM[หักบัญชีธนาคาร-ช่องทางหรือATM]
     ShowPaymentDetail --> ShowShippingDetail[ShowShippingDetail]
     ShowPaymentDetail --> ShowAddCouponForm[ShowAddCouponForm]
     ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
