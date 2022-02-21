@@ -4,12 +4,12 @@ JANAWAT E-Commerce System
 ### Architecture
 JANAWAT E-Commerce System architecture
 ```mermaid
-    graph LR
-    Client[Client] -->|HTTP| Controller[Controller]
-    Controller --> Service[Service]
-    Service -->Repository[Repository]    
-    Service -->Gateway[Gateway]
-    Repository -->H2[H2-Database]
+    graph TD
+    A[Client] -->|HTTP| B(Controller)
+    B --> S(Service)
+    S --> R(Repository)
+    S --> G(Gateway)
+    R --> H(H2-Database)  
 ```
 ### Process 
 #### 1. Search product by name
