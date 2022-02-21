@@ -73,6 +73,13 @@ JANAWAT E-Commerce System architecture
     ShowUserAddressForm --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
     ShowUserAddressForm --> ShowNextButton[ShowNextButton]
 ```
+#### 10 Summary
+```mermaid
+    SummaryOrder[SummaryOrder] --> ShowPaymentSlip[ShowPaymentSlip]
+    ShowPaymentSlip --> ShowAmount[ShowAmount]
+    ShowPaymentSlip --> ShowTex[ExcudingServiceFeesAtCounterService]
+    ShowPaymentSlip --> ShowPrintButton[ShowPrintButton]
+```
 #### 8. Payment
 ```mermaid
     graph LR
@@ -106,13 +113,7 @@ JANAWAT E-Commerce System architecture
     ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
     ShowPaymentDetail --> SubmitOrderButton[SubmitOrderButton]
 ```
-#### 10 Summary
-```mermaid
-    SummaryOrder[SummaryOrder] --> ShowPaymentSlip[ShowPaymentSlip]
-    ShowPaymentSlip --> ShowAmount[ShowAmount]
-    ShowPaymentSlip --> ShowTex[ExcudingServiceFeesAtCounterService]
-    ShowPaymentSlip --> ShowPrintButton[ShowPrintButton]
-```
+
 
 
 **Test cases**  
