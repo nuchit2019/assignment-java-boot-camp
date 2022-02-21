@@ -73,53 +73,27 @@ JANAWAT E-Commerce System architecture
     ShowUserAddressForm --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
     ShowUserAddressForm --> ShowNextButton[ShowNextButton]
 ```
-#### 88. Shipping
-```mermaid
-    graph LR
-    Payment[Payment] --> ShowPaymentDetail[ShowPaymentDetail]
-    ShowPaymentDetail --> SelectTypePayment[SelectTypePayment]
-    SelectTypePayment --> ShowCheckBoxConFirmTaxSlip[ShowCheckBoxConFirmTaxSlip]
-    SelectTypePayment --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
-    SelectTypePayment --> ShowNextButton[ShowNextButton]
-``` 
 #### 8. Payment
 ```mermaid
     graph LR
-    Payment[Payment] --> ShowPaymentDetail[ShowPaymentDetail]
-    
-    ShowPaymentDetail --> SelectTypePayment[SelectTypePayment]
-    SelectTypePayment --> บัตรเครดิตหรือเดบิต[บัตรเครดิตหรือเดบิต]
-    SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> payPalAmex[payPalAmex]
-    SelectTypePayment --> ผ่อนชำระ[ผ่อนชำระ]
-    SelectTypePayment --> LINEPay[LINEPay]
-    SelectTypePayment --> หักบัญชีธนาคารหรือช่องทางATM[หักบัญชีธนาคารหรือช่องทางATM]
-    ShowPaymentDetail --> ShowShippingDetail[ShowShippingDetail]
-    ShowPaymentDetail --> ShowAddCouponForm[ShowAddCouponForm]
-    ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
-    ShowPaymentDetail --> ShowOrderButton[ShowOrderButton]
+    Payment[Payment] --> ShowUserAddressForm[ShowUserAddressForm]
+    ShowUserAddressForm --> ShowOrderSummary[ShowOrderSummary]
+    ShowUserAddressForm --> ShowCheckBoxConFirmTaxSlip[ShowCheckBoxConFirmTaxSlip]
+    ShowUserAddressForm --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
+    ShowUserAddressForm --> ShowNextButton[ShowNextButton]
 ```
 #### 9 Comfirm to order
 ```mermaid
-    ComfirmToOrder[ComfirmToOrder] --> ShowPaymentDetail[ShowPaymentDetail]
-    ShowPaymentDetail --> SelectTypePayment[SelectTypePayment]
-    SelectTypePayment --> บัตรเครดิตหรือเดบิต[บัตรเครดิตหรือเดบิต]
-    SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> payPalAmex[payPalAmex]
-    SelectTypePayment --> ผ่อนชำระ[ผ่อนชำระ]
-    SelectTypePayment --> LINEPay[LINEPay]
-    SelectTypePayment --> หักบัญชีธนาคารหรือช่องทางATM[หักบัญชีธนาคารหรือช่องทางATM]
-    ShowPaymentDetail --> ShowShippingDetail[ShowShippingDetail]
-    ShowPaymentDetail --> ShowAddCouponForm[ShowAddCouponForm]
-    ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
-    ShowPaymentDetail --> SubmitOrderButton[SubmitOrderButton]
+    graph LR
+    ComfirmOrder[ComfirmOrder] --> ShowPaymentSlip[ShowPaymentSlip]
+    ShowPaymentSlip --> ShowAmount[ShowAmount]
+    ShowPaymentSlip --> ShowTex[ShowTex]
+    ShowPaymentSlip --> ShowPrintButton[ShowPrintButton] 
 ```
-#### 10. Shipping
+#### 10. Summary
 ```mermaid
     graph LR
-    SummaryOrder[SummaryOrder] --> ShowPaymentSlip[ShowPaymentSlip]
+    OrderSummary[OrderSummary] --> ShowPaymentSlip[ShowPaymentSlip]
     ShowPaymentSlip --> ShowAmount[ShowAmount]
     ShowPaymentSlip --> ShowTex[ShowTex]
     ShowPaymentSlip --> ShowPrintButton[ShowPrintButton] 
