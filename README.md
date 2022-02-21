@@ -145,17 +145,27 @@ JANAWAT E-Commerce System architecture
         int quantity
         float pricePerUnit
    }
+   SHOPPINCARD ||--o{ CUSTOMER : places
+   SHOPPINCARD {
+        int customerId
+        string first_name
+        string last_name
+        string phone
+   }
+   SHOPPINCARD_DETAIL ||--o{ SHOPPINCARD : places
+   SHOPPINCARD_DETAIL {
+        int customerId
+        string first_name
+        string last_name
+        string phone
+   }
    PRODUCT ||--|{ ORDER_DETAIL : contains
+   PRODUCT ||--|{ SHOPPINCARD_DETAIL : contains
    PRODUCT {
         int productId
         string productName
    }
 ```
-#### UML class diagram
-```mermaid
-
-```
-
 **Test cases**
 
 |   | Story | Insert | Total | Selected | Got item? | Change |
