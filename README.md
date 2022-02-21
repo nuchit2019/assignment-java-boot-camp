@@ -1,5 +1,16 @@
 JANAWAT E-Commerce System
 ===
+### Architecture
+JANAWAT E-Commerce System architecture
+```mermaid
+    graph LR
+    Client[Client] -->|HTTP| Controller[Controller]
+    Controller --> Service[Service]
+    Service -->Repo[Repository]
+    Repository -->H2[Database]
+    Service -->Gateway[Gateway]
+```
+
 1. Search product by name
 - 1.1 ป้อน Adidas NMD
 - 1.2 แสดงจำนวน 350 ค้นพบสิค้า สำหรับ Adidas NMD
