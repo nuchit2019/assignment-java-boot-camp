@@ -1,9 +1,8 @@
 # JANAWAT E-Commerce System
 ### Process 
 ```mermaid
-graph TD
-A0[Start] -->|Get money|A1(Go shopping)
-A1 --> A2[1. SearchProductByname]
+ graph TD
+A0[Start] --> A2[1. SearchProductByname]
 A2 --> A3[Enter = Adidas NMD]
 A3 --> A4[Click Find Button]
 A4 --> B0[Display Product 5 Item]
@@ -11,13 +10,13 @@ B0 --> B1[ProductName]
 B0 --> B2[ProductPrice]
 B0 --> B3[ProductOldPrice]
 B0 --> B4[Product%Discount]
-B0 --> C0[2. Choose a product item]
+B0 --> |Select Product Item|C0[2. Choose a product item]
 C0 --> C1["3. Show product detail"]
 C1 --> C2["Show List Product Image"]
 C1 --> C3["Show Product Attribute"]
 C1 --> C4["Show Price"]
 C1 --> C5["Show OldPrice"]
-C1 --> D0["4. Add Product to basket"]
+C1 -->|Select Product Item|D0["4. Add Product to basket"]
 D0 --> D1["4.1 Click add to cart button"]
 D1 --> D2["Show List Product Image"]
 D1 --> D3["Show Product Attribute"]
@@ -43,11 +42,10 @@ I0 --> J0["10. Summary"]
 J0 --> J1["Show PaySlip Detail"] 
 J0 --> J2["Show Amount"] 
 J0 --> J3["END"]
-classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
-    classDef ja fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff;
-    classDef JANAWAT-Service fill:#fff,stroke:#bbb,stroke-width:2px,color:#326ce5;
+classDef plain fill:#ddd,stroke:#fff,color:#000;
+    classDef ja fill:#326ce5,stroke:#fff,color:#fff;    
     class A1,A0,A2,A3,A4,B0,C0,C1,D0,D1,E0,F1,F0,G0,H0,I0,J0 ja;
-    class client plain;
+    
 ```
 ### Architecture
 JANAWAT E-Commerce System architecture
