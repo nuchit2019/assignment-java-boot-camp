@@ -73,26 +73,20 @@ JANAWAT E-Commerce System architecture
     ShowUserAddressForm --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
     ShowUserAddressForm --> ShowNextButton[ShowNextButton]
 ```
-#### 17. Shipping
+#### 88. Shipping
 ```mermaid
     graph LR
-    SummaryOrder[SummaryOrder] --> ShowPaymentSlip[ShowPaymentSlip]
-    ShowPaymentSlip --> ShowOrderSummary[ShowOrderSummary]
-    ShowPaymentSlip --> ShowCheckBoxConFirmTaxSlip[ShowCheckBoxConFirmTaxSlip]
-    ShowPaymentSlip --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
-    ShowPaymentSlip --> ShowNextButton[ShowNextButton]
-```
-#### 10 Summary
-```mermaid
-    SummaryOrder[SummaryOrder] --> ShowPaymentSlip[ShowPaymentSlip]
-    ShowPaymentSlip --> ShowAmount[ShowAmount]
-    ShowPaymentSlip --> ShowTex[ExcudingServiceFeesAtCounterService]
-    ShowPaymentSlip --> ShowPrintButton[ShowPrintButton]
-```
+    Payment[Payment] --> ShowPaymentDetail[ShowPaymentDetail]
+    ShowPaymentDetail --> SelectTypePayment[SelectTypePayment]
+    SelectTypePayment --> ShowCheckBoxConFirmTaxSlip[ShowCheckBoxConFirmTaxSlip]
+    SelectTypePayment --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
+    SelectTypePayment --> ShowNextButton[ShowNextButton]
+``` 
 #### 8. Payment
 ```mermaid
     graph LR
     Payment[Payment] --> ShowPaymentDetail[ShowPaymentDetail]
+    
     ShowPaymentDetail --> SelectTypePayment[SelectTypePayment]
     SelectTypePayment --> บัตรเครดิตหรือเดบิต[บัตรเครดิตหรือเดบิต]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
@@ -122,7 +116,14 @@ JANAWAT E-Commerce System architecture
     ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
     ShowPaymentDetail --> SubmitOrderButton[SubmitOrderButton]
 ```
-
+#### 10. Shipping
+```mermaid
+    graph LR
+    SummaryOrder[SummaryOrder] --> ShowPaymentSlip[ShowPaymentSlip]
+    ShowPaymentSlip --> ShowAmount[ShowAmount]
+    ShowPaymentSlip --> ShowTex[ShowTex]
+    ShowPaymentSlip --> ShowPrintButton[ShowPrintButton] 
+```
 
 
 **Test cases**  
