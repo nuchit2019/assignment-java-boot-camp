@@ -11,15 +11,15 @@ JANAWAT E-Commerce System architecture
     Service -->Gateway[Gateway]
     Repository -->H2[H2-Database]
 ```
-#Process 
-1. Search product by name
+### Process 
+#### Search product by name
 ```mermaid
     graph LR
     SearchProductByName[SearchProductByName] --> ShwoProductDetail[ShwoProductDetail]
     ShwoProductDetail --> ShwoProduct5Item[ShwoProductItem-5-Item]
 ```
 
-2. Choose a product
+#### 2. Choose a product
 ```mermaid
     graph LR
     SelectProductItem[SelectProductItem] --> ShwoProductItemDetail[ShwoProductItemDetail]
@@ -28,7 +28,7 @@ JANAWAT E-Commerce System architecture
     ShwoProductItemDetail --> Price[Price]
 ```
 
-- 3.Show-Product-Detail
+#### 3.Show-Product-Detail
 ```mermaid
     graph LR
     SelectProductItem[SelectProductItem] --> ShowProductDetail[ShowProductDetail]
@@ -37,17 +37,21 @@ JANAWAT E-Commerce System architecture
     ShowProductDetail --> Price[Price]
     ShowProductDetail --> ImageList[ImageList]
 ```
-- 3.1 แสดงชื่อ
-- 3.2 ขนาด ... สามารถเลือกได้
-- 3.3 ราคา
-4. Add product to basket
-- 4.1 กดปุ่ม ใส่ตะกร้า
+#### 4. Add product to basket
+```mermaid
+    graph LR
+    SelectProductItem[SelectProductItem] --> ShowProductDetail[ShowProductDetail]
+    ShowProductDetail --> ClickAddButton[ClickAddButton]
+    ShowProductDetail --> Size[Size]
+    ShowProductDetail --> Price[Price]
+    ShowProductDetail --> ImageList[ImageList]
+``` 
 5. Show data in basket
 - 5.1 แสดงจำนวน สินค้าในตะกร้า
 - 5.2 แสดงรูปสินค้า
 - 5.3 แสดง รายละเอียดสินค้า
 - 5.4 แสดงราคา
-6. Checkout
+#### 6. Checkout
 - 6.1 กด ชำระสินค้า
 - 6.2 ตัดเงิน
 - 6.3 ส่งเมล์
@@ -55,7 +59,7 @@ JANAWAT E-Commerce System architecture
 - 7.1 แสดงรายละเอียดที่จัดส่ง พร้อมแก้ไขได้
 - 7.2 แสดงรายละเอียดสินค้าที่จัดส่ง
 - 7.3 แสดงมูลค่าสินค้า
-8. Payment
+#### 8. Payment
 - 8.1 เลือกช่อฝทางการชำระ
 - 8.2 ผ่านบัตรเครดิต หรือเดบิต
 - 8.3 เก็บเงินปลายทาง
@@ -64,9 +68,9 @@ JANAWAT E-Commerce System architecture
 - 8.6 ผ่อนชำระ
 - 8.7 LINE Pay
 - 8.8 หักบัญชีธนาคาร/ช่องทาง ATM
-- 9 Comfirm to order
+#### 9 Comfirm to order
 - 9.1 กดปุ่มยืนยันการสั่งซื้อ
-- 10 Summary
+#### 10 Summary
 - 10.1 พิมพ์ใชแจ้งการชำระ(paySlip)
  
 
