@@ -1,6 +1,17 @@
 JANAWAT E-Commerce System
 ===
-1. Search product by name
+## Design
+
+### Architecture 
+```mermaid
+    graph LR
+    Client[Client] -->|HTTP| Controller[Controller]
+    Controller --> Service[Service]
+    Service -->Repo[Repository]
+    Repository -->H2[Database]
+    Service -->Gateway[Gateway]
+```
+
 - 1.1 ป้อน Adidas NMD
 - 1.2 แสดงจำนวน 350 ค้นพบสิค้า สำหรับ Adidas NMD
 - 1.3 แสดงรายละเอียดสินค้า 5 item
@@ -54,9 +65,9 @@ JANAWAT E-Commerce System
 Product listing
 ---
 
-| API | Endpoint | Method |
-|-----|----------|--------|
-|Product listing|https://www.mocky.io/v2/5c77c5b330000051009d64c9|GET|
+| API | Endpoint    | Method |
+|-----|-------------|--------|
+|Product listing| https://... |GET|
 
 Acceptance agreement
 ---
