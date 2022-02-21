@@ -8,7 +8,7 @@ JANAWAT E-Commerce System architecture
     Controller --> Service[Service]
     Service -->Repository[Repository]    
     Service -->Gateway[Gateway]
-    Repository -->H2[Database]
+    Repository -->H2[H2-Database]
 ```
 
 1. Search product by name
