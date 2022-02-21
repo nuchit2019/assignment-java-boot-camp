@@ -1,16 +1,4 @@
-JANAWAT E-Commerce System
-===
-
-### Architecture
-JANAWAT E-Commerce System architecture
-```mermaid
-    graph TD
-    A[Client] -->|HTTP| B(Controller)
-    B --> S(Service)
-    S --> R(Repository)
-    S --> G(Gateway)
-    R --> H(H2-Database)  
-```
+# JANAWAT E-Commerce System
 ### Process 
 #### 1. Search product by name
 ```mermaid
@@ -103,7 +91,58 @@ JANAWAT E-Commerce System architecture
     ShowPaymentSlip --> ShowMessageSummaryPaySlip[ShowMessageSummaryPaySlip]
     ShowPaymentSlip --> ShowPrintButton[ShowPrintButton] 
 ```
-
+### Architecture
+JANAWAT E-Commerce System architecture
+```mermaid
+    graph TD
+    A[Client] -->|HTTP| B(Controller)
+    B --> S(Service)
+    S --> R(Repository)
+    S --> G(Gateway)
+    R --> H(H2-Database)  
+```
+#### Entity Relationship Diagram
+```mermaid
+    erDiagram
+    USER ||--o{ CUSTOMER : places
+    USER {        
+        int userId       
+        string userName
+        string password
+        string email
+    }
+    USER ||--|{ CUSTOMER : places 
+    SHIPPING_ADDRESS ||--o{ CUSTOMER : places
+    SHIPPING_ADDRESS {        
+        string houseNo       
+        string district
+        string province
+        string postcode
+    }
+    SHIPPING_ADDRESS ||--|{ ORDER_DETAIL : contains
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER {
+        int customerId
+        string first_name
+        string last_name
+        string phone
+    }
+    ORDER ||--|{ ORDER_DETAIL : contains
+    ORDER {
+        int orderNumber
+        string deliveryAddress
+    }
+    ORDER_DETAIL {
+        string productCode
+        int quantity
+        float pricePerUnit
+    }
+    PRODUCT ||--|{ ORDER_DETAIL : contains
+    PRODUCT {
+        int productId
+        string productName
+    }
+```
 
 **Test cases**  
 
