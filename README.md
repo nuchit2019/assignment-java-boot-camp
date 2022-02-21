@@ -68,7 +68,7 @@ JANAWAT E-Commerce System architecture
 ```mermaid
     graph LR
     Shipping[Shipping] --> ShowUserAddressForm[ShowUserAddressForm]
-    ShowUserAddressForm --> ทดสอบShowOrderSummary[ทดสอบShowOrderSummary]
+    ShowUserAddressForm --> ShowOrderSummary[ShowOrderSummary]
     ShowUserAddressForm --> ShowCheckBoxConFirmTaxSlip[ShowCheckBoxConFirmTaxSlip]
     ShowUserAddressForm --> ShowEstimationDateTimeShipping[ShowEstimationDateTimeShipping]
     ShowUserAddressForm --> ShowNextButton[ShowNextButton]
@@ -81,10 +81,10 @@ JANAWAT E-Commerce System architecture
     SelectTypePayment --> บัตรเครดิตหรือเดบิต[บัตรเครดิตหรือเดบิต]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> payPal-Amex[payPal-Amex]
+    SelectTypePayment --> payPalAmex[payPalAmex]
     SelectTypePayment --> ผ่อนชำระ[ผ่อนชำระ]
     SelectTypePayment --> LINEPay[LINEPay]
-    SelectTypePayment --> หักบัญชีธนาคาร-ช่องทางหรือATM[หักบัญชีธนาคาร-ช่องทางหรือATM]
+    SelectTypePayment --> หักบัญชีธนาคารหรือช่องทางATM[หักบัญชีธนาคารหรือช่องทางATM]
     ShowPaymentDetail --> ShowShippingDetail[ShowShippingDetail]
     ShowPaymentDetail --> ShowAddCouponForm[ShowAddCouponForm]
     ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
@@ -93,14 +93,14 @@ JANAWAT E-Commerce System architecture
 #### 9 Comfirm to order
 ```mermaid
     ComfirmToOrder[ComfirmToOrder] --> ShowPaymentDetail[ShowPaymentDetail]
-    ShowPaymentDetail --> SelectedTypePayment[SelectedTypePayment]
+    ShowPaymentDetail --> SelectTypePayment[SelectTypePayment]
     SelectTypePayment --> บัตรเครดิตหรือเดบิต[บัตรเครดิตหรือเดบิต]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
     SelectTypePayment --> เก็บเงินปลายทาง[เก็บเงินปลายทาง]
-    SelectTypePayment --> payPal-Amex[payPal-Amex]
+    SelectTypePayment --> payPalAmex[payPalAmex]
     SelectTypePayment --> ผ่อนชำระ[ผ่อนชำระ]
     SelectTypePayment --> LINEPay[LINEPay]
-    SelectTypePayment --> หักบัญชีธนาคาร-ช่องทางหรือATM[หักบัญชีธนาคาร-ช่องทางหรือATM]
+    SelectTypePayment --> หักบัญชีธนาคารหรือช่องทางATM[หักบัญชีธนาคารหรือช่องทางATM]
     ShowPaymentDetail --> ShowShippingDetail[ShowShippingDetail]
     ShowPaymentDetail --> ShowAddCouponForm[ShowAddCouponForm]
     ShowAddCouponForm --> CalulateOrderAfterAddCoupon[CalulateOrderAfterAddCoupon]
@@ -110,7 +110,7 @@ JANAWAT E-Commerce System architecture
 ```mermaid
     SummaryOrder[SummaryOrder] --> ShowPaymentSlip[ShowPaymentSlip]
     ShowPaymentSlip --> ShowAmount[ShowAmount]
-    ShowPaymentSlip --> ShowTex(ExcudingServiceFeesAtCounterService)[ExcudingServiceFeesAtCounterService]
+    ShowPaymentSlip --> ShowTex[ExcudingServiceFeesAtCounterService]
     ShowPaymentSlip --> ShowPrintButton[ShowPrintButton]
 ```
 
