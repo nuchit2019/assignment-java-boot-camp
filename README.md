@@ -31,7 +31,7 @@ JANAWAT E-Commerce System architecture
 - 3.Show-Product-Detail
 ```mermaid
     graph LR
-    ShowProductDetail[ShowProductDetail] --> ShowProductDetail[ShowProductDetail]
+    SelectProductItem[SelectProductItem] --> ShowProductDetail[ShowProductDetail]
     ShowProductDetail --> ProductName[ProductName]
     ShowProductDetail --> Size[Size]
     ShowProductDetail --> Price[Price]
