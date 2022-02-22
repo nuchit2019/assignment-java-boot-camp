@@ -200,25 +200,40 @@ JANAWAT E-Commerce System architecture
 
 **API Endpoint**
 
-| API                 | Endpoint                                         | Method |
-|---------------------|--------------------------------------------------|--------|
-| SearchProductByname | http://localhost:8080/searchProductByName/{name} | GET    |
-| showProductDetail   | http://localhost:8080/showProductDetail/{id}     | GET    |
-| showDataInBasket    | http://localhost:8080/showDataInBasket/{userId}  | GET    |
-| checkout            | http://localhost:8080/checkout/{userId}          | GET    |
-| orderSummary        | http://localhost:8080/orderSummary/{userId}      | GET    |
-| addProduct2basket   | http://localhost:8080/addProduct2basket          | POST   |
-| shipping            | http://localhost:8080/shipping                   | PUT    |
-| confirmOrder        | http://localhost:8080/confirmOrder      | POST   |
+| API                         | Endpoint                                             | Method |
+|-----------------------------|------------------------------------------------------|--------|
+| GetProductByName            | http://localhost:8080/GetProductByName/{productName} | GET    |
+| GetProductById              | http://localhost:8080/GetProductById/{productId}  | GET    |
+| addProductsToShoppingCard   | http://localhost:8080/addProductsToShoppingCard      | POST   |
+| GetShoppingCardByCustomerId | http://localhost:8080/GetShoppingCardByCustomerId/{customerId}     | GET    |
+| checkout                    | http://localhost:8080/checkout/{customerId}          | GET    |
+| confirmOrder                | http://localhost:8080/confirmOrder                   | POST   |
+| orderSummary                | http://localhost:8080/orderSummary/{customerId}      | GET    |
+
 
 **Test cases**
-
-|     | Story                                                                                                                     | Insert      | Total | Selected         | Got item? | Change |
-|-----|---------------------------------------------------------------------------------------------------------------------------|-------------|-------|------------------|-----------|------------|
-| 1   |                                                                                                                           |             |       |                  |           |-| 
-| 2   |                                                                                                                           |             |       |                  |           |-| 
-| 3   |                                                                                                                           |             |       |                  |           |-| 
-| 4   |                                                                                                                           |             |       |                  |           |-| 
+1. Search product by name
+   - 1.1 Find Product name=Adidas NMD
+     - http://localhost:8080/GetProductByName/{productname}
+   - 1.2 Display product 5 items
+2. Choose a product
+   - 2.1 Select Product Item
+   -  http://localhost:8080/GetProductById/{productId}
+3. Show product detail
+4. Add product to basket
+   - 4.1.  http://localhost:8080/addProductsToShoppingCard
+5. Show data in basket
+   - 5.1. http://localhost:8080/GetShoppingCardByCustomerId/{customerId}
+6. Checkout
+   - 6.1. http://localhost:8080/checkout/{customerId}
+7. Shipping
+   - 7.1 Display Shipping address
+8. Payment
+   - 8.1 Select Pament method=PayPal/Amex
+9. Confirm to order
+   - 9.1 http://localhost:8080/confirmOrder
+10. Summary 
+    - 10.1 http://localhost:8080/orderSummary/{customerId}
 
 Acceptance agreement
 ---
