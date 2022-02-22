@@ -1,12 +1,13 @@
 # JANAWAT E-Commerce System
 ### Process 
 ```mermaid
-flowchart LR
+graph TD
     A0((START)) --> A1
-    A1["1.Search product by name"] -->|"ระบุช่องค้นหา = Adidas NMD"| B[/"กดปุ่มค้นหา"/]
-    B --> B1{"มีสินค้า"}
-    B1 -->|NO| B2["แสดงข้อความ ไม่มีสินค้า"]
-    B1 -->|YES| B3[\"แสดงรายการสินค้า 5 รายการ"/]
+    A1["1.Search product by name"] -->|"Enter= Adidas NMD"| B[/"Submite Find button"/]
+    B --> B1{"Is Product in stock"}
+    
+    B1 -->|YES| B3[\"Display Product 5 Items"/]
+    B1 -->|NO| B2["Find not found"]
 
     db[[H2.Database]] -->B3
     B3-->B11[[Product Detail]]
@@ -47,20 +48,25 @@ flowchart LR
     G1 --> |phone|G8((.))
     G --> H[/"8. Payment"/] 
     H -->H1[[Show Shiipping detail]] 
-    H1 --> H2["customer fullName"]
-    H1 --> H3["shipping Address detail"] 
-    H1 --> H4["SummarOrder"] 
-    H1 --> H5["ListOrderDetail"] 
-    H --> I0["Select Payment method"] 
+    H1 --> |customer fullName|H2(("."))
+    H1 --> |shipping Address detail|H3((".")) 
+    H1 --> |SummarOrder|H4((".")) 
+    H1 --> |ListOrderDetail|H5((".")) 
+    H --> I0["Select Payment method=PayPal/Amex"] 
     I0--> I[9. Confirm to order]
     I -->I1[[Show Shiipping detail]] 
-    I1 --> I2["customer fullName"]
-    I1 --> I3["shipping Address detail"] 
-    I1 --> I4["SummarOrder"] 
-    I1 --> I5["ListOrderDetail"] 
-    I --> J["10. Summary"] 
+    I1 --> |customer fullName|I2(("."))
+    I1 --> |shipping Address detail|I3((".")) 
+    I1 --> |SummarOrder|I4((".")) 
+    I1 --> |ListOrderDetail|I5(("."))   
+    JJ1 -->|YES| J[\"Display Product 5 Items"/]
+    JJ1 -->|NO| X
+    
+    
+    I --> JJ1{"Is Confirm to order"}
+    
     J --> J1[["Show PaySlip Detail"]] 
-    J --> J2["Show Amount"] 
+    J --> J2[["Show Amount"]] 
     B2 --> X{{End}} 
     J--> X{{End}} 
    
