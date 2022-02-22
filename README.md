@@ -233,4 +233,4 @@ Any question?
 ---
 Open your issue from this link below
 
-https://github.com/igeargeek/fullstackdev-internship-challenge/issues
+https://github.com/nuchit2019/assignment-java-boot-camp/issues
