@@ -214,26 +214,26 @@ JANAWAT E-Commerce System architecture
 **Test cases**
 1. Search product by name
    - 1.1 Find Product name=Adidas NMD
-     - http://localhost:8080/GetProductByName/{productname}
+     - call api = http://localhost:8080/GetProductByName/{productname}
    - 1.2 Display product 5 items
 2. Choose a product
    - 2.1 Select Product Item
-   -  http://localhost:8080/GetProductById/{productId}
+   -  call api = http://localhost:8080/GetProductById/{productId}
 3. Show product detail
 4. Add product to basket
-   - 4.1.  http://localhost:8080/addProductsToShoppingCard
+   - 4.1. call api = http://localhost:8080/addProductsToShoppingCard
 5. Show data in basket
-   - 5.1. http://localhost:8080/GetShoppingCardByCustomerId/{customerId}
+   - 5.1. call api = http://localhost:8080/GetShoppingCardByCustomerId/{customerId}
 6. Checkout
-   - 6.1. http://localhost:8080/checkout/{customerId}
+   - 6.1. call api = http://localhost:8080/checkout/{customerId}
 7. Shipping
    - 7.1 Display Shipping address
 8. Payment
    - 8.1 Select Pament method=PayPal/Amex
 9. Confirm to order
-   - 9.1 http://localhost:8080/confirmOrder
+   - 9.1 call api = http://localhost:8080/confirmOrder
 10. Summary 
-    - 10.1 http://localhost:8080/orderSummary/{customerId}
+    - 10.1 call api = http://localhost:8080/orderSummary/{customerId}
 
 Acceptance agreement
 ---
