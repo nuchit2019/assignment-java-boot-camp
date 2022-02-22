@@ -1,22 +1,23 @@
 # JANAWAT E-Commerce System
-### Process 
+---
+---
+### Process
+---
+---
 ```mermaid
 graph TD
     A0((START)) --> A1
     A1["1.Search product by name"] -->|"Enter= Adidas NMD"| B[/"Submite Find button"/]
-    B --> B1{"Is Product in stock"}
-    
+    B --> B1{"Is Product in stock"}    
     B1 -->|YES| B3[\"Display Product 5 Items"/]
     B1 -->|NO| B2["Find not found"]
-
     db[[H2.Database]] -->B3
     B3-->B11[[Product Detail]]
     B11 --> |Product Name|B51((.))
     B11 --> |Product Price|B52((.))
     B11 --> |Product Old Price|B53((.))
     B11 --> |"Product % discount"|B54((.))
-    B3 -->C[/2. Choose a product item/]
-    
+    B3 -->C[/2. Choose a product item/]    
     C --> C1[/"3. Show product detail"/]
     C1-->C11[[Product Detail]]
     C11 --> |Product Image list|C2(("."))
@@ -30,14 +31,12 @@ graph TD
     E11 --> |Product Attribute|E3((.))
     E11 --> |Product Attribute|E4((.))
     E11 --> |"Show OldPrice"|E5((.))
-
     E --> F[/"6. Check out"/] 
     F--> F11[[Product Detail]]
     F11 --> |Product Image list|F2(("."))
     F11 --> |Product Attribute|F3((.))
     F11 --> |Product Attribute|F4((.))
-    F11 --> |"Show OldPrice"|F5((.))
-    
+    F11 --> |"Show OldPrice"|F5((.))    
     F -->|Submite Check out button| G[/"7. Shipping"/] 
     G --> G1[["Show Shiipping Address"]]
     G1 --> |email|G2(("."))
@@ -60,22 +59,23 @@ graph TD
     I1 --> |SummarOrder|I4((".")) 
     I1 --> |ListOrderDetail|I5(("."))   
     JJ1 -->|YES| J[\"Display Product 5 Items"/]
-    JJ1 -->|NO| X
-    
-    
-    I --> JJ1{"Is Confirm to order"}
-    
+    JJ1 -->|NO| X   
+    I --> JJ1{"Is Confirm to order"}    
     J --> J1[["Show PaySlip Detail"]] 
     J --> J2[["Show Amount"]] 
     B2 --> X{{End}} 
-    J--> X{{End}} 
-   
+    J--> X{{End}}    
     classDef plain fill:#ddd,stroke:#fff,color:#000;
     classDef ja fill:#326ce5,stroke:#fff,color:#fff;    
     class A0,A1,B,B1,B3,C,C1,D,E,F,G,H,I0,I,J,JJ1 ja;
 ```
-### Architecture
+---
+Architecture
+---
+---
 JANAWAT E-Commerce System architecture
+---
+---
 ```mermaid
     graph LR;
     client([client])-. HTTP Request<br>  .->Controller[Controller];
@@ -93,7 +93,9 @@ JANAWAT E-Commerce System architecture
     class client plain;
     class JANAWAT-Service JANAWAT-Service;
 ```
-#### Entity Relationship Diagram
+Entity Relationship Diagram
+---
+---
 ```mermaid
    erDiagram
    USER ||--o{ CUSTOMER : owns
@@ -199,7 +201,8 @@ JANAWAT E-Commerce System architecture
 ```
 
 **API Endpoint**
-
+---
+---
 | API                         | Endpoint                                             | Method |
 |-----------------------------|------------------------------------------------------|--------|
 | GetProductByName            | http://localhost:8080/GetProductByName/{productName} | GET    |
@@ -212,38 +215,31 @@ JANAWAT E-Commerce System architecture
 
 
 **Test cases**
+---
+---
 1. Search product by name
    - 1.1 Find Product name=Adidas NMD
-     - call api = http://localhost:8080/GetProductByName/{productname}
+     * call api = http://localhost:8080/GetProductByName/{productname}
    - 1.2 Display product 5 items
 2. Choose a product
-   - 2.1 Select Product Item
-   -  call api = http://localhost:8080/GetProductById/{productId}
+   - Select Product Item
+      *  call api = http://localhost:8080/GetProductById/{productId}
 3. Show product detail
 4. Add product to basket
-   - 4.1. call api = http://localhost:8080/addProductsToShoppingCard
+   - call api = http://localhost:8080/addProductsToShoppingCard
 5. Show data in basket
-   - 5.1. call api = http://localhost:8080/GetShoppingCardByCustomerId/{customerId}
+   - call api = http://localhost:8080/GetShoppingCardByCustomerId/{customerId}
 6. Checkout
-   - 6.1. call api = http://localhost:8080/checkout/{customerId}
+   - call api = http://localhost:8080/checkout/{customerId}
 7. Shipping
-   - 7.1 Display Shipping address
+   - Display Shipping address
 8. Payment
-   - 8.1 Select Pament method=PayPal/Amex
+   - Select Pament method=PayPal/Amex
 9. Confirm to order
-   - 9.1 call api = http://localhost:8080/confirmOrder
+   - call api = http://localhost:8080/confirmOrder
 10. Summary 
-    - 10.1 call api = http://localhost:8080/orderSummary/{customerId}
-
-Acceptance agreement
----
-
-1. Fork this github project.
-2. Open `issue` feature in your repository (Options > Features > Checked on
-   Issues) [#Reference](https://softwareengineering.stackexchange.com/questions/179468/forking-a-repo-on-github-but-allowing-new-issues-on-the-fork)
-3. Put your code in `exercise` folder.
-4. Publish your project on hosting, cloud or something that we can play it :) (DigitalOcean, Firebase Hosting, Heroku)
-
+    - call api = http://localhost:8080/orderSummary/{customerId}
+    
 Any question?
 ---
 Open your issue from this link below
