@@ -197,6 +197,24 @@ JANAWAT E-Commerce System architecture
         string urlImage
    }
 ```
+
+**API Endpoint**
+
+| API                 | Endpoint                                         | Method |
+|---------------------|--------------------------------------------------|--------|
+| SearchProductByname | http://localhost:8080/searchProductByName/{name} | GET    |
+| showProductDetail   | http://localhost:8080/showProductDetail/{id}     | GET    |
+| showDataInBasket    | http://localhost:8080/showDataInBasket/{userId}  | GET    |
+| checkout            | http://localhost:8080/checkout/{userId}  | GET    |
+| orderSummary        | http://localhost:8080/orderSummary/{user  | GET    |
+| addProduct2basket   | http://localhost:8080/addProduct2basket          | POST   |
+| shipping            | http://localhost:8080/shipping/{userId}          | PUT    |
+| confirmorder        | http://localhost:8080/confirmorder/{userId}         | POST   |
+Id}
+
+
+
+
 **Test cases**
 
 |   | Story | Insert | Total | Selected | Got item? | Change |
@@ -207,12 +225,6 @@ JANAWAT E-Commerce System architecture
 | 4 |User insert 10 baht and 2 baht coins and select Coke Vanilla (S) but can't select it because this product isn't available|10, 2|12|Coke Vanilla (S)|false|-|
 | 6 |User insert 10 baht (2 coins) and 2 baht (1 coin) but user would like to refund|10, 10, 2|22|-|false|10, 10, 2|
 
-Product listing
----
-
-| API | Endpoint | Method |
-|-----|----------|--------|
-|Product listing|https://www.mocky.io/v2/5c77c5b330000051009d64c9|GET|
 
 Acceptance agreement
 ---
