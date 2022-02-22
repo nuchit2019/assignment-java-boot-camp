@@ -53,7 +53,7 @@ graph TD
     H1 --> |SummarOrder|H4((".")) 
     H1 --> |ListOrderDetail|H5((".")) 
     H --> I0["Select Payment method=PayPal/Amex"] 
-    I0--> I[9. Confirm to order]
+    I0--> I[/9. Confirm to order/]
     I -->I1[[Show Shiipping detail]] 
     I1 --> |customer fullName|I2(("."))
     I1 --> |shipping Address detail|I3((".")) 
@@ -72,7 +72,7 @@ graph TD
    
     classDef plain fill:#ddd,stroke:#fff,color:#000;
     classDef ja fill:#326ce5,stroke:#fff,color:#fff;    
-    class A0,A1,B,B1,B3,C,C1,D,E,F,G,H,I0,I,J ja;
+    class A0,A1,B,B1,B3,C,C1,D,E,F,G,H,I0,I,J,JJ1 ja;
 ```
 ### Architecture
 JANAWAT E-Commerce System architecture
