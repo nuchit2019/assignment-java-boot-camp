@@ -1,8 +1,6 @@
 # JANAWAT E-Commerce System
 ---
----
 ### Process
----
 ---
 ```mermaid
 graph TD
@@ -69,12 +67,10 @@ graph TD
     classDef ja fill:#326ce5,stroke:#fff,color:#fff;    
     class A0,A1,B,B1,B3,C,C1,D,E,F,G,H,I0,I,J,JJ1 ja;
 ```
----
+
 Architecture
 ---
----
 JANAWAT E-Commerce System architecture
----
 ---
 ```mermaid
     graph LR;
@@ -94,7 +90,6 @@ JANAWAT E-Commerce System architecture
     class JANAWAT-Service JANAWAT-Service;
 ```
 Entity Relationship Diagram
----
 ---
 ```mermaid
    erDiagram
@@ -202,7 +197,6 @@ Entity Relationship Diagram
 
 **API Endpoint**
 ---
----
 | API                         | Endpoint                                             | Method |
 |-----------------------------|------------------------------------------------------|--------|
 | GetProductByName            | http://localhost:8080/GetProductByName/{productName} | GET    |
@@ -215,7 +209,6 @@ Entity Relationship Diagram
 
 
 **Test cases**
----
 ---
 1. Search product by name
    - 1.1 Find Product name=Adidas NMD
@@ -243,5 +236,4 @@ Entity Relationship Diagram
 Any question?
 ---
 Open your issue from this link below
-
 https://github.com/nuchit2019/assignment-java-boot-camp/issues
