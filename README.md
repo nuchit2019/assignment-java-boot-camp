@@ -205,11 +205,11 @@ JANAWAT E-Commerce System architecture
 | SearchProductByname | http://localhost:8080/searchProductByName/{name} | GET    |
 | showProductDetail   | http://localhost:8080/showProductDetail/{id}     | GET    |
 | showDataInBasket    | http://localhost:8080/showDataInBasket/{userId}  | GET    |
-| checkout            | http://localhost:8080/checkout/{userId}  | GET    |
-| orderSummary        | http://localhost:8080/orderSummary/{user  | GET    |
+| checkout            | http://localhost:8080/checkout/{userId}          | GET    |
+| orderSummary        | http://localhost:8080/orderSummary/{userId}      | GET    |
 | addProduct2basket   | http://localhost:8080/addProduct2basket          | POST   |
-| shipping            | http://localhost:8080/shipping/{userId}          | PUT    |
-| confirmorder        | http://localhost:8080/confirmorder/{userId}         | POST   |
+| shipping            | http://localhost:8080/shipping                   | PUT    |
+| confirmOrder        | http://localhost:8080/confirmOrder      | POST   |
 
 **Test cases**
 
