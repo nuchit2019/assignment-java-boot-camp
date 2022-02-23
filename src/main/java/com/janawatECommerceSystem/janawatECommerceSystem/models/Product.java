@@ -10,7 +10,7 @@ public class Product {
     private int id;
     @Column(name = "productName")
     private String productName;
-    @Column(name = "description")
+    @Column(name = "description", length = 1000)
     private String description;
     @Column(name = "price")
     private int price;
@@ -24,15 +24,6 @@ public class Product {
     private int productModelId;
     @Column(name = "InStock")
     private int InStock;
-
-    public int getInStock() {
-        return InStock;
-    }
-
-    public void setInStock(int inStock) {
-        InStock = inStock;
-    }
-
     @Column(name = "productImage")
     private String productImage;
     @Column(name = "productImagesList", length = 1000)
@@ -49,42 +40,22 @@ public class Product {
     private Date updatedDate;
     @Column(name = "size")
     private String[] sizes;
-
-    public String getProductImage() {
-        return productImage;
-    }
-
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
-    }
-
-    public String[] getProductImagesList() {
-        return productImagesList;
-    }
-
-    public void setProductImagesList(String[] productImagesList) {
-        this.productImagesList = productImagesList;
-    }
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "brand_id", insertable = false, updatable = false)
     private Brand brand;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "shop_id", insertable = false, updatable = false)
     private Shop shop;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "product_model_id", insertable = false, updatable = false)
     private ProductModel productModel;
-
     @OneToMany(mappedBy = "product_id")
     private List<ProductReview> productReviews;
 
     public Product() {
     }
 
-       public    Product(int id, String productName, String description, int price, int discountPercent, String promotionEndDate, int isDeliveryDiscount, int productModelId, int InStock, String productImage, String[] productImagesList, int brandId, int shopId, String status, Date createdDate, Date updatedDate, String[] sizes) {
+    public Product(int id, String productName, String description, int price, int discountPercent, String promotionEndDate, int isDeliveryDiscount, int productModelId, int InStock, String productImage, String[] productImagesList, int brandId, int shopId, String status, Date createdDate, Date updatedDate, String[] sizes) {
         this.id = id;
         this.productName = productName;
         this.description = description;
@@ -103,6 +74,30 @@ public class Product {
         this.updatedDate = updatedDate;
         this.sizes = sizes;
 
+    }
+
+    public int getInStock() {
+        return InStock;
+    }
+
+    public void setInStock(int inStock) {
+        InStock = inStock;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
+    public String[] getProductImagesList() {
+        return productImagesList;
+    }
+
+    public void setProductImagesList(String[] productImagesList) {
+        this.productImagesList = productImagesList;
     }
 
     public int getId() {

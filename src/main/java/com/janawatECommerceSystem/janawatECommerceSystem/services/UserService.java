@@ -1,6 +1,6 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.services;
 
-import com.janawatECommerceSystem.janawatECommerceSystem.exceptions.UserNotFoundException;
+import com.janawatECommerceSystem.janawatECommerceSystem.exceptions.LoginException;
 import com.janawatECommerceSystem.janawatECommerceSystem.models.User;
 import com.janawatECommerceSystem.janawatECommerceSystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +14,29 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @Autowired
+    private UserToken userToken;
 
-
-    public String ConcatDat(String name){
-        Optional<User> result = userRepository.findByName(name);
-
-        if(result.isPresent()){
-            return "Hello "+result.get().getName();
+    public String login(String username,String password){
+        Optional<User> user = userRepository.findByUsername(username);
+        if(user.isPresent()){
+            if(user.get().getPassword().equals(password)){
+                return userToken.createTokenByUserName(username);
+            }
         }
 
-        throw new UserNotFoundException(name);
+        throw new LoginException(username);
     }
+
+    public String getUserByToken(String token)
+    {
+        return userToken.decodeToken(token);
+    }
+
+/*
+    public void register(User newUser)
+    {
+        userRepository.save(newUser);
+    }
+*/
 }

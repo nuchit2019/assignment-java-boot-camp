@@ -1,11 +1,9 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.models;
 
-import org.springframework.data.domain.Page;
-
 
 public class ProductResponse {
     private int id;
-    private String name;
+    private String productName;
     private String description;
     private int price;
     private int discountPercent;
@@ -31,12 +29,12 @@ public class ProductResponse {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getDescription() {

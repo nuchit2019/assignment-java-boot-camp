@@ -14,33 +14,40 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
+
     @Autowired
     private ProductRepository productRepository;
 
     public ProductResponse getProductById(int id) {
         Optional<Product> product = productRepository.findById(id);
         if (product.isEmpty()) {
-            throw new ProductNotFoundException("Product not found");
+            throw new ProductNotFoundException("productrepo not found");
         }
         ProductResponse productresponse = setProductResponse(product.get());
         return productresponse;
     }
 
-    public List<ProductResponse> getProducts(String search) {
-        List<Product> products;
-        if (search != null && !search.isEmpty()) {
-            products = productRepository.findByProductName(search);
-        } else {
-            products = productRepository.findAll();
-        }
-        List<ProductResponse> productsResponse = products.stream().map(e -> setProductResponse(e)).collect(Collectors.toList());
+
+    public List<ProductResponse> getProductsByName(String productName) {
+        List<Product> productList = productRepository.findByProductNameContains(productName);
+
+        List<ProductResponse> productsResponse =
+                productList.stream()
+                        .map(e -> setProductResponse(e))
+                        .collect(Collectors.toList());
+
         return productsResponse;
     }
+
 
     public List<ProductResponse> getProductsAll() {
         List<Product> products = productRepository.findAll();
 
-        List<ProductResponse> productsResponse = products.stream().map(e -> setProductResponse(e)).collect(Collectors.toList());
+        List<ProductResponse> productsResponse =
+                products.stream()
+                        .map(e -> setProductResponse(e))
+                        .collect(Collectors.toList());
+
         return productsResponse;
     }
 
@@ -48,7 +55,7 @@ public class ProductService {
     private ProductResponse setProductResponse(Product product) {
         ProductResponse productResponse = new ProductResponse();
         productResponse.setId(product.getId());
-        productResponse.setName(product.getProductName());
+        productResponse.setProductName(product.getProductName());
         productResponse.setDescription(product.getDescription());
         productResponse.setPrice(product.getPrice());
         productResponse.setDiscountPercent(product.getDiscountPercent());

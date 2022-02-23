@@ -89,118 +89,225 @@ JANAWAT E-Commerce System architecture
     class client plain;
     class JANAWAT-Service JANAWAT-Service;
 ```
-Entity Relationship Diagram
----
-```mermaid
-   erDiagram
-   USER ||--o{ CUSTOMER : owns
-   USER {        
-        int id       
-        string userName
-        string password
-        string email
-   }   
-   SHIPPING_ADDRESS ||--o{ CUSTOMER : places
-   SHIPPING_ADDRESS {  
-        int id      
-        string houseNo       
-        string district
-        string province
-        string postcode
-   }
-   CUSTOMER_ADDRESS_MAPPING ||--o{ CUSTOMER : places
-   CUSTOMER_ADDRESS_MAPPING ||--o{ SHIPPING_ADDRESS : places
-   CUSTOMER_ADDRESS_MAPPING {  
-        int id      
-        int customerId       
-        int shippingAddressId
-        string addressType
-   }
-   
-   SHIPPING_ADDRESS ||--|{ ORDER_DETAIL : contains
-   CUSTOMER ||--o{ ORDER : places
-   CUSTOMER {
-        int id 
-        int userId
-        string firstName
-        string lastName
-        string phone
-   }
-   ORDER ||--|{ ORDER_DETAIL : contains
-   ORDER {
-        int id
-        int customerId
-        int shippingAddressId
-        datetime createdDate
-        string typeShipping
-        string paymentMethod        
-   }
-   ORDER_DETAIL {
-        int orderId
-        int productAttributeId
-        int qty
-        double price
-        double sumprice
-   }
-   SHOPPINCARD ||--o{ CUSTOMER : places
-   SHOPPINCARD {
-        int id
-        int customerId
-        int shippingId
-        datetimt createdDate
-        datetimt updatedDate       
-        
-   }
-   SHOPPINCARD_DETAIL ||--o{ SHOPPINCARD : places
-   SHOPPINCARD_DETAIL {
-        int shoppingCardId
-        int productAttributeId
-        int qty
-        double price         
-   }
-   PRODUCT_CATEGORY ||--|{ PRODUCT : contains   
-   PRODUCT_CATEGORY {
-        int id
-        string categoryName
-   }
-   
-   PRODUCT ||--|{ ORDER_DETAIL : contains  
-   PRODUCT {
-        int id
-        string productName
-        double price
-        double oldprice
-             
-   }
-   PRODUCT_ATTRIBUTE ||--|{ PRODUCT : contains
-   PRODUCT_ATTRIBUTE ||--|{ SHOPPINCARD_DETAIL : contains
-   PRODUCT_ATTRIBUTE {
-        int id
-        int productId
-        string color
-        string size
-        double price
-        double oldprice
-        int qtyInStock
-        int qtyTotall
-        int qtyMinimum  
-   }
-   
-   PRODUCT_IMAGE_LIST ||--|{ PRODUCT : contains
-   PRODUCT_IMAGE_LIST {
-        int id
-        int productId
-        string imageName
-        string urlImage
-   }
-```
+
+[//]: # (Entity Relationship Diagram)
+
+[//]: # (---)
+
+[//]: # (```mermaid)
+
+[//]: # (   erDiagram)
+
+[//]: # (   USER ||--o{ CUSTOMER : owns)
+
+[//]: # (   USER {        )
+
+[//]: # (        int id       )
+
+[//]: # (        string userName)
+
+[//]: # (        string password)
+
+[//]: # (        string email)
+
+[//]: # (   }   )
+
+[//]: # (   SHIPPING_ADDRESS ||--o{ CUSTOMER : places)
+
+[//]: # (   SHIPPING_ADDRESS {  )
+
+[//]: # (        int id      )
+
+[//]: # (        string houseNo       )
+
+[//]: # (        string district)
+
+[//]: # (        string province)
+
+[//]: # (        string postcode)
+
+[//]: # (   })
+
+[//]: # (   CUSTOMER_ADDRESS_MAPPING ||--o{ CUSTOMER : places)
+
+[//]: # (   CUSTOMER_ADDRESS_MAPPING ||--o{ SHIPPING_ADDRESS : places)
+
+[//]: # (   CUSTOMER_ADDRESS_MAPPING {  )
+
+[//]: # (        int id      )
+
+[//]: # (        int customerId       )
+
+[//]: # (        int shippingAddressId)
+
+[//]: # (        string addressType)
+
+[//]: # (   })
+
+[//]: # (   )
+[//]: # (   SHIPPING_ADDRESS ||--|{ ORDER_DETAIL : contains)
+
+[//]: # (   CUSTOMER ||--o{ ORDER : places)
+
+[//]: # (   CUSTOMER {)
+
+[//]: # (        int id )
+
+[//]: # (        int userId)
+
+[//]: # (        string firstName)
+
+[//]: # (        string lastName)
+
+[//]: # (        string phone)
+
+[//]: # (   })
+
+[//]: # (   ORDER ||--|{ ORDER_DETAIL : contains)
+
+[//]: # (   ORDER {)
+
+[//]: # (        int id)
+
+[//]: # (        int customerId)
+
+[//]: # (        int shippingAddressId)
+
+[//]: # (        datetime createdDate)
+
+[//]: # (        string typeShipping)
+
+[//]: # (        string paymentMethod        )
+
+[//]: # (   })
+
+[//]: # (   ORDER_DETAIL {)
+
+[//]: # (        int orderId)
+
+[//]: # (        int productAttributeId)
+
+[//]: # (        int qty)
+
+[//]: # (        double price)
+
+[//]: # (        double sumprice)
+
+[//]: # (   })
+
+[//]: # (   SHOPPINCARD ||--o{ CUSTOMER : places)
+
+[//]: # (   SHOPPINCARD {)
+
+[//]: # (        int id)
+
+[//]: # (        int customerId)
+
+[//]: # (        int shippingId)
+
+[//]: # (        datetimt createdDate)
+
+[//]: # (        datetimt updatedDate       )
+
+[//]: # (        )
+[//]: # (   })
+
+[//]: # (   SHOPPINCARD_DETAIL ||--o{ SHOPPINCARD : places)
+
+[//]: # (   SHOPPINCARD_DETAIL {)
+
+[//]: # (        int shoppingCardId)
+
+[//]: # (        int productAttributeId)
+
+[//]: # (        int qty)
+
+[//]: # (        double price         )
+
+[//]: # (   })
+
+[//]: # (   PRODUCT_CATEGORY ||--|{ PRODUCT : contains   )
+
+[//]: # (   PRODUCT_CATEGORY {)
+
+[//]: # (        int id)
+
+[//]: # (        string categoryName)
+
+[//]: # (   })
+
+[//]: # (   )
+[//]: # (   PRODUCT ||--|{ ORDER_DETAIL : contains  )
+
+[//]: # (   PRODUCT {)
+
+[//]: # (        int id)
+
+[//]: # (        string productName)
+
+[//]: # (        double price)
+
+[//]: # (        double oldprice)
+
+[//]: # (             )
+[//]: # (   })
+
+[//]: # (   PRODUCT_ATTRIBUTE ||--|{ PRODUCT : contains)
+
+[//]: # (   PRODUCT_ATTRIBUTE ||--|{ SHOPPINCARD_DETAIL : contains)
+
+[//]: # (   PRODUCT_ATTRIBUTE {)
+
+[//]: # (        int id)
+
+[//]: # (        int productId)
+
+[//]: # (        string color)
+
+[//]: # (        string size)
+
+[//]: # (        double price)
+
+[//]: # (        double oldprice)
+
+[//]: # (        int qtyInStock)
+
+[//]: # (        int qtyTotall)
+
+[//]: # (        int qtyMinimum  )
+
+[//]: # (   })
+
+[//]: # (   )
+[//]: # (   PRODUCT_IMAGE_LIST ||--|{ PRODUCT : contains)
+
+[//]: # (   PRODUCT_IMAGE_LIST {)
+
+[//]: # (        int id)
+
+[//]: # (        int productId)
+
+[//]: # (        string imageName)
+
+[//]: # (        string urlImage)
+
+[//]: # (   })
+
+[//]: # (```)
 
 **API Endpoint**
 ---
-| API                         | Endpoint                                             | Method |
+| user-controller | Endpoint                                             | Method |
+|-----------------|------------------------------------------------------|--------|
+| /login          | http://localhost:8080/login | POST   |
+| /CurrentUser    | http://localhost:8080/CurrentUser  | GET    |
+---
+
+| product-controller                         | Endpoint                                             | Method |
 |-----------------------------|------------------------------------------------------|--------|
 | GetProductByName            | http://localhost:8080/GetProductByName/{productName} | GET    |
 | GetProductById              | http://localhost:8080/GetProductById/{productId}  | GET    |
+| GetProductAll              | http://localhost:8080/GetProductAll  | GET    |
 | addProductsToShoppingCard   | http://localhost:8080/addProductsToShoppingCard      | POST   |
 | GetShoppingCardByCustomerId | http://localhost:8080/GetShoppingCardByCustomerId/{customerId}     | GET    |
 | checkout                    | http://localhost:8080/checkout/{customerId}          | GET    |
@@ -208,10 +315,10 @@ Entity Relationship Diagram
 | orderSummary                | http://localhost:8080/orderSummary/{customerId}      | GET    |
 
 
-**Test cases**
+**Test Script**
 ---
 1. Search product by name
-   - 1.1 Find Product name=Adidas NMD
+   - 1.1 Find Product name=Adidas
      * call api = http://localhost:8080/GetProductByName/{productname}
    - 1.2 Display product 5 items
 2. Choose a product
