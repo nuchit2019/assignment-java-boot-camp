@@ -17,10 +17,10 @@ public class UserService {
     @Autowired
     private UserToken userToken;
 
-    public String login(String username,String password){
+    public String login(String username, String password) {
         Optional<User> user = userRepository.findByUsername(username);
-        if(user.isPresent()){
-            if(user.get().getPassword().equals(password)){
+        if (user.isPresent()) {
+            if (user.get().getPassword().equals(password)) {
                 return userToken.createTokenByUserName(username);
             }
         }
@@ -28,15 +28,9 @@ public class UserService {
         throw new LoginException(username);
     }
 
-    public String getUserByToken(String token)
-    {
+    public String getUserByToken(String token) {
         return userToken.decodeToken(token);
     }
 
-/*
-    public void register(User newUser)
-    {
-        userRepository.save(newUser);
-    }
-*/
+
 }

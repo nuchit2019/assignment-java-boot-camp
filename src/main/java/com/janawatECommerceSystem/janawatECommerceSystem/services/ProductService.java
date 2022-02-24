@@ -1,11 +1,15 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.services;
 
 import com.janawatECommerceSystem.janawatECommerceSystem.exceptions.ProductNotFoundException;
+import com.janawatECommerceSystem.janawatECommerceSystem.models.CartItem;
 import com.janawatECommerceSystem.janawatECommerceSystem.models.Product;
 import com.janawatECommerceSystem.janawatECommerceSystem.models.ProductResponse;
 import com.janawatECommerceSystem.janawatECommerceSystem.models.ProductReview;
 import com.janawatECommerceSystem.janawatECommerceSystem.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,15 +25,36 @@ public class ProductService {
     public ProductResponse getProductById(int id) {
         Optional<Product> product = productRepository.findById(id);
         if (product.isEmpty()) {
-            throw new ProductNotFoundException("productrepo not found");
+            throw new ProductNotFoundException("Product not found");
         }
         ProductResponse productresponse = setProductResponse(product.get());
         return productresponse;
     }
 
 
-    public List<ProductResponse> getProductsByName(String productName) {
-        List<Product> productList = productRepository.findByProductNameContains(productName);
+    public void adjustProduct(CartItem item){
+
+        Product product  = productRepository.findById(item.getProductId()).get();
+        Integer inStok = product.getInStock() - item.getQuantity();
+        product.setInStock(inStok);
+        productRepository.save(product);
+    }
+
+    public boolean isInstokCanOrder(CartItem item){
+
+        Product product  = productRepository.findById(item.getProductId()).get();
+        if( product.getInStock() >= item.getQuantity())
+            return true;
+
+        return false;
+    }
+
+
+    public List<ProductResponse> getProductsByName(String productName, int pageNumber) {
+        int pageSize = 5;
+        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+
+        Page<Product> productList = productRepository.findByProductNameContains(productName, pageable);
 
         List<ProductResponse> productsResponse =
                 productList.stream()
@@ -40,8 +65,12 @@ public class ProductService {
     }
 
 
-    public List<ProductResponse> getProductsAll() {
-        List<Product> products = productRepository.findAll();
+    public List<ProductResponse> getProductsAll(int pageNumber) {
+        //int pageNumber = 1;
+        int pageSize = 5;
+        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+
+        Page<Product> products = productRepository.findAll(pageable);
 
         List<ProductResponse> productsResponse =
                 products.stream()
@@ -83,5 +112,8 @@ public class ProductService {
         return productReviews.stream().mapToInt(e -> e.getScore()).sum() / productReviews.size();
     }
 
+    public Product getProduct(int productId) {
+        return productRepository.findById(productId).orElse(null);
+    }
 
 }

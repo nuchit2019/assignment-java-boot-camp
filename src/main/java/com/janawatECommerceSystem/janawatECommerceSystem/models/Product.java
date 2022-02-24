@@ -8,54 +8,75 @@ import java.util.List;
 public class Product {
     @Id
     private int id;
+
     @Column(name = "productName")
     private String productName;
+
     @Column(name = "description", length = 1000)
     private String description;
+
     @Column(name = "price")
-    private int price;
+    private Double price;
+
     @Column(name = "discount_percent")
-    private int discountPercent;
+    private Double discountPercent;
+
     @Column(name = "promotion_end_date")
     private String promotionEndDate;
+
     @Column(name = "is_delivery_discount")
     private int isDeliveryDiscount;
+
     @Column(name = "product_model_id")
     private int productModelId;
+
     @Column(name = "InStock")
     private int InStock;
+
     @Column(name = "productImage")
     private String productImage;
+
     @Column(name = "productImagesList", length = 1000)
     private String[] productImagesList;
+
     @Column(name = "brand_id")
     private int brandId;
+
     @Column(name = "shop_id")
     private int shopId;
+
     @Column(name = "status")
     private String status;
+
     @Column(name = "created_date")
     private Date createdDate;
+
     @Column(name = "updated_date")
     private Date updatedDate;
+
     @Column(name = "size")
     private String[] sizes;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "brand_id", insertable = false, updatable = false)
+
     private Brand brand;
     @ManyToOne(optional = false)
     @JoinColumn(name = "shop_id", insertable = false, updatable = false)
+
     private Shop shop;
     @ManyToOne(optional = false)
     @JoinColumn(name = "product_model_id", insertable = false, updatable = false)
+
     private ProductModel productModel;
     @OneToMany(mappedBy = "product_id")
+
     private List<ProductReview> productReviews;
 
     public Product() {
     }
 
-    public Product(int id, String productName, String description, int price, int discountPercent, String promotionEndDate, int isDeliveryDiscount, int productModelId, int InStock, String productImage, String[] productImagesList, int brandId, int shopId, String status, Date createdDate, Date updatedDate, String[] sizes) {
+    public Product(int id, String productName, String description, Double price, Double discountPercent, String promotionEndDate, int isDeliveryDiscount, int productModelId, int InStock, String productImage, String[] productImagesList, int brandId, int shopId, String status, Date createdDate, Date updatedDate, String[] sizes) {
         this.id = id;
         this.productName = productName;
         this.description = description;
@@ -124,19 +145,19 @@ public class Product {
         this.description = description;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getDiscountPercent() {
+    public Double getDiscountPercent() {
         return discountPercent;
     }
 
-    public void setDiscountPercent(int discountPercent) {
+    public void setDiscountPercent(Double discountPercent) {
         this.discountPercent = discountPercent;
     }
 

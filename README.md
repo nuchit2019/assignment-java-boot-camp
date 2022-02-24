@@ -300,45 +300,79 @@ JANAWAT E-Commerce System architecture
 | user-controller | Endpoint                                             | Method |
 |-----------------|------------------------------------------------------|--------|
 | /login          | http://localhost:8080/login | POST   |
-| /CurrentUser    | http://localhost:8080/CurrentUser  | GET    |
 ---
-
-| product-controller                         | Endpoint                                             | Method |
+| product-controller          | Endpoint                                             | Method |
 |-----------------------------|------------------------------------------------------|--------|
-| GetProductByName            | http://localhost:8080/GetProductByName/{productName} | GET    |
-| GetProductById              | http://localhost:8080/GetProductById/{productId}  | GET    |
-| GetProductAll              | http://localhost:8080/GetProductAll  | GET    |
-| addProductsToShoppingCard   | http://localhost:8080/addProductsToShoppingCard      | POST   |
-| GetShoppingCardByCustomerId | http://localhost:8080/GetShoppingCardByCustomerId/{customerId}     | GET    |
-| checkout                    | http://localhost:8080/checkout/{customerId}          | GET    |
-| confirmOrder                | http://localhost:8080/confirmOrder                   | POST   |
-| orderSummary                | http://localhost:8080/orderSummary/{customerId}      | GET    |
-
-
+| /GetProductByName/{productName}            | http://localhost:8080/GetProductByName/{productName} | GET    |
+| /GetProductByName/{productName}/{page}              | http://localhost:8080/GetProductByName/{productName}/{page}  | GET    |
+| /GetProductById/{productId}               | http://localhost:8080/GetProductById/{productId}  | GET    |
+| /GetProductAll/{page}   | http://localhost:8080/GetProductAll/{page}     | GET   |
+--- 
+| cart-controller | Endpoint                                           | Method |
+|---------------|----------------------------------------------------|--------|
+| /cart/items    | http://localhost:8080/cart/items  | POST    |
+| /cart/paymentMethod   | http://localhost:8080/cart/paymentMethod | PUT    |
+| /cart/address   | http://localhost:8080/cart/address | PUT    |
+| /cart    | http://localhost:8080/cart  | GET    |
+---
 **Test Script**
 ---
-1. Search product by name
-   - 1.1 Find Product name=Adidas
-     * call api = http://localhost:8080/GetProductByName/{productname}
-   - 1.2 Display product 5 items
-2. Choose a product
-   - Select Product Item
-      *  call api = http://localhost:8080/GetProductById/{productId}
-3. Show product detail
-4. Add product to basket
-   - call api = http://localhost:8080/addProductsToShoppingCard
-5. Show data in basket
-   - call api = http://localhost:8080/GetShoppingCardByCustomerId/{customerId}
-6. Checkout
-   - call api = http://localhost:8080/checkout/{customerId}
-7. Shipping
-   - Display Shipping address
-8. Payment
-   - Select Pament method=PayPal/Amex
-9. Confirm to order
-   - call api = http://localhost:8080/confirmOrder
-10. Summary 
-    - call api = http://localhost:8080/orderSummary/{customerId}
+1. Login to System 
+   - 1.1. Call api *{POST}* = http://localhost:8080/login
+   - 1.2. .... _Body_ = {"username": "nuchit", "password": "1234"}
+   - 
+2. Search product by name
+   - 2.1 Find Product name=ADIDAS 
+     - Call api *{GET}* = http://localhost:8080/GetProductByName/ADIDAS
+     - Default display page 1, size = 5 item
+   - 2.2 Select by item ... next step
+   -    
+3. Choose a product
+   - 3.1 Select Product by item ...
+   - 3.2 Call api *{GET}* = http://localhost:8080/GetProductById/{productId}
+   - 3.3 view product detail ... next step
+   - 
+4. Show product detail
+   - 4.1 view product item 2
+   - 4.2 Call api *{GET}* = http://localhost:8080/GetProductById/2
+   - 
+5. Add product to basket
+   - 5.1 Add product to Card ... order quantity = 2
+   - 5.2 call api *{POST}* = http://localhost:8080/cart/items
+   - Body= {"productId": 2, "quantity": 2}
+6. Show data in basket
+   - 6.1 Check product in Shopping card
+   - 6.2 Call api *{GET}* = http://localhost:8080/cart
+   - ....Bearer Token="sample_token nuchit"
+   - 
+7. Checkout
+   - 7.1 Checkout update address
+   - ....Call api *{PUT}* = http://localhost:8080/cart/address
+   - ....Bearer Token="sample_token nuchit"
+   - ....Body={"addressId": 1}
+   - 
+8. Shipping
+   - 8.1 Display Shipping address
+   - 8.2 update address
+   - ....Call api *{PUT}* = http://localhost:8080/cart/address
+   - ....Bearer Token="sample_token nuchit"
+   - ....Body={"addressId": 1}
+   - 8.3 view shopping card deatil
+   - ....Call api *{GET}* = http://localhost:8080/cart
+   - ....Bearer Token="sample_token nuchit"
+   - 
+9. Payment
+   - Select Payment method=creditCard
+10. Confirm to order
+    - 10.1 Update payment method
+    - call api *{PUT}* = http://localhost:8080/cart/paymentMethod
+    - ....Body={"paymentMethodId": 1}
+    - ....Bearer Token="sample_token nuchit"
+    - 
+11. Summary 
+    - 11.1 Summary Order detail
+    - 11.2 call api *{GET}* = http://localhost:8080/cart
+    - ....Bearer Token="sample_token nuchit"
     
 Any question?
 ---

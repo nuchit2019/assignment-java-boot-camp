@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Address {
     @Id
     private int id;
+    private String fullName;
     private String address;
     private String phone;
     private String district;
@@ -20,14 +21,40 @@ public class Address {
     public Address() {
     }
 
-    public Address(int id, String address, String phone, String district, String province, String postCode ) {
+    /*
+    Address address = new Address(1, "Test Address", "", "", "Bangkok", "10300");
+    Address address = new Address("Santhapon Sripilaipong", "Somewhere in Thailand", "12345", "Somewhere", "Krung Thep Maha Nakhon (Bangkok)", "0999999999");
+
+
+     */
+
+    public Address(int id, String fullName, String address, String phone, String district, String province, String postCode) {
         this.id = id;
+        this.fullName = fullName;
         this.address = address;
         this.phone = phone;
         this.district = district;
         this.province = province;
         this.postCode = postCode;
+    }
 
+    public Address(String fullName, String address, String phone, String district, String province, String postCode) {
+        this.fullName = fullName;
+        this.address = address;
+        this.phone = phone;
+        this.district = district;
+        this.province = province;
+        this.postCode = postCode;
+    }
+
+
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public int getId() {

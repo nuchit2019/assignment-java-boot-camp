@@ -16,7 +16,10 @@ public class UserController {
     @Autowired
     private LoginResponse loginResponse;
 
-    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/login",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+
     public LoginResponse login(@RequestBody LoginRequest request) {
         String token = userService.login(request.getUsername(), request.getPassword());
         loginResponse.setMessage("Login Success...");

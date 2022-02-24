@@ -5,9 +5,9 @@ public class ProductResponse {
     private int id;
     private String productName;
     private String description;
-    private int price;
-    private int discountPercent;
-    private int netPrice;
+    private Double price;
+    private Double discountPercent;
+    private Double netPrice;
     private String promotionEndDate;
     private int isDeliveryDiscount;
     private String productModelName;
@@ -45,27 +45,27 @@ public class ProductResponse {
         this.description = description;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getDiscountPercent() {
+    public Double getDiscountPercent() {
         return discountPercent;
     }
 
-    public void setDiscountPercent(int discountPercent) {
+    public void setDiscountPercent(Double discountPercent) {
         this.discountPercent = discountPercent;
     }
 
-    public int getNetPrice() {
+    public Double getNetPrice() {
         return netPrice;
     }
 
-    public void setNetPrice(int netPrice) {
+    public void setNetPrice(Double netPrice) {
         this.netPrice = netPrice;
     }
 
