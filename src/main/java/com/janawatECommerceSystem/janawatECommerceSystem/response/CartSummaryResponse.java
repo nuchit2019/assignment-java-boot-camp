@@ -37,14 +37,12 @@ public class CartSummaryResponse {
         response.setTotalPrice(totalPrice);
 
         if (cart.getAddressId() != null) {
-            response.setAddress(addressService.getAddress(
-                    cart.getAddressId()).getAddress());
+            //response.setAddress(addressService.getAddress(cart.getAddressId()).getAddress());
+            response.setAddress(addressService.getAddress(cart.getAddressId()).getFullAddress());
         }
 
         if (cart.getPaymentId() != null) {
-            response.setCardNumber(
-                    paymentService.getPaymentMethod(
-                    cart.getPaymentId()).getCardNumber());
+            response.setCardNumber(  paymentService.getPaymentMethod( cart.getPaymentId()).getCardNumber());
 
         }
 

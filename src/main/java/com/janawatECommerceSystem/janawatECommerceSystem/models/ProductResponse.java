@@ -8,6 +8,7 @@ public class ProductResponse {
     private Double price;
     private Double discountPercent;
     private Double netPrice;
+    private Integer InStock;
     private String promotionEndDate;
     private int isDeliveryDiscount;
     private String productModelName;
@@ -20,6 +21,14 @@ public class ProductResponse {
     private String[] sizes;
     private int score;
     private int reviewerCount;
+
+    public Integer getInStock() {
+        return InStock;
+    }
+
+    public void setInStock(Integer inStock) {
+        InStock = inStock;
+    }
 
     public int getId() {
         return id;

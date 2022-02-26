@@ -48,7 +48,6 @@ public class Address {
     }
 
 
-
     public String getFullName() {
         return fullName;
     }
@@ -111,5 +110,19 @@ public class Address {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public String getFullAddress() {
+
+
+        String fullAddress =
+                this.fullName + "Name: " +
+                        this.address + " Address: " +
+                        this.phone + " phone: " +
+                        this.district + " district: " +
+                        this.province + " province: " +
+                        this.postCode;
+
+        return fullAddress;
     }
 }

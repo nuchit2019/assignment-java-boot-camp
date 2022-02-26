@@ -87,6 +87,7 @@ public class ProductService {
         productResponse.setProductName(product.getProductName());
         productResponse.setDescription(product.getDescription());
         productResponse.setPrice(product.getPrice());
+        productResponse.setInStock(product.getInStock());
         productResponse.setDiscountPercent(product.getDiscountPercent());
         productResponse.setNetPrice(product.getPrice() - (product.getDiscountPercent() * product.getPrice()) / 100);
         productResponse.setPromotionEndDate(product.getPromotionEndDate());

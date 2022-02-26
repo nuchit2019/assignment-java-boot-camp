@@ -324,8 +324,7 @@ JANAWAT E-Commerce System architecture
    - 
    - .... http://localhost:8080/login
    - .... _Body_ = {"username": "nuchit", "password": "1234"}
-   - 1.2 Return tokens
-   - ....Copy tokens
+   - 1.2 Return tokens 
    - 
 3. Search product by name
    - 3.1 Find Product name=ADIDAS 
@@ -357,7 +356,7 @@ JANAWAT E-Commerce System architecture
    - ....*Body= {"productId":productId, "quantity":quantity}*
    - 
    - ....http://localhost:8080/cart/items
-   - ....Bearer Token="sample_token nuchit" ... *paste tokens*
+   - ....Bearer Token="sample_token nuchit"
    - ....Body= {"productId": 2, "quantity": 2}
    - 6.3 Reduce the InStock of products, *InStock = (InStock-quantity)*
    - ....productsId=2,
