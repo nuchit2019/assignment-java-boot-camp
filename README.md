@@ -327,8 +327,11 @@ JANAWAT E-Commerce System architecture
      - Call api *{GET}*     - 
      - ....http://localhost:8080/GetProductByName/ADIDAS
      - Default display page 1, size = 5 item
-   - You can chang page view ...page default to page 2
+   - You can chang page view ...page default to page ??
+   - ...to page 2
    - ... http://localhost:8080/GetProductByName/ADIDAS/2
+   - ...to page 3
+   - ... http://localhost:8080/GetProductByName/ADIDAS/3
    -    
 3. Choose a product
    - 3.1 Select Product by item 2
