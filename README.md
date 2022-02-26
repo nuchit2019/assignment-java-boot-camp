@@ -317,82 +317,105 @@ JANAWAT E-Commerce System architecture
 ---
 **Test Script**
 ---
-1. Login to System 
-   - 1.1. Call api *{POST}* 
+1. Start...
+2. Login to System 
+   - 1.1. Call api post *{host}/login*
+   - .... *Body= {"username": username, "password":password}*
+   - 
    - .... http://localhost:8080/login
    - .... _Body_ = {"username": "nuchit", "password": "1234"}
+   - 1.2 Return tokens
+   - ....Copy tokens
    - 
-2. Search product by name
-   - 2.1 Find Product name=ADIDAS 
-     - Call api *{GET}*     - 
+3. Search product by name
+   - 3.1 Find Product name=ADIDAS 
+     - Call api get *{host}/GetProductByName/{productName}*  
+     - 
      - ....http://localhost:8080/GetProductByName/ADIDAS
      - Default display page 1, size = 5 item
-   - You can chang page view ...page default to page ??
+   - 3.2 You can chang page view ...page default to page ??
+   - ...Call api get *{host}/GetProductByName/{productName}/{page}*
    - ...to page 2
    - ... http://localhost:8080/GetProductByName/ADIDAS/2
+   - 
    - ...to page 3
    - ... http://localhost:8080/GetProductByName/ADIDAS/3
    -    
-3. Choose a product
-   - 3.1 Select Product by item 2
-   - 3.2 Next step
+4. Choose a product
+   - 4.1 Select Product by item 2
+   - 4.2 Next step
    - 
-4. Show product detail
-   - 4.1 View detail product item 2
-   - 4.2 Call api *{GET}*  
+5. Show product detail
+   - 5.1 View detail product item 2
+   - 5.2 Call api get *{host}/GetProductById/{productId}*  
    - ....http://localhost:8080/GetProductById/2
    - 
-5. Add product to basket
-   - 5.1 Add product to Card ... order quantity = 2
-   - 5.2 call api *{POST}* 
+6. Add product to basket
+   - 6.1 Add product to Card ... order quantity = 2
+   - 6.2 call api post *{host}/cart/items* 
+   - ....*Bearer Token="{token}"*
+   - ....*Body= {"productId":productId, "quantity":quantity}*
+   - 
    - ....http://localhost:8080/cart/items
-   - ....Bearer Token="sample_token nuchit"
+   - ....Bearer Token="sample_token nuchit" ... *paste tokens*
    - ....Body= {"productId": 2, "quantity": 2}
-   - 5.3 Reduce the InStock of products
+   - 6.3 Reduce the InStock of products, *InStock = (InStock-quantity)*
    - ....productsId=2,
      - .... ....InStock before = 15
      - .... ....InStock after  = 13
    - ....productsId=2,InStock=(15-2) = 13
    - 
-6. Show data in basket
-   - 6.1 Check product in Shopping card
-   - 6.2 Call api *{GET}* = /cart
-   - ....Bearer Token="Token current user login"
+7. Show data in basket
+   - 7.1 Check product in Shopping card
+   - 7.2 Call api get = *{host}/cart*
+   - ....*Bearer Token={token}*
    - 
    - ....http://localhost:8080/cart
    - ....Bearer Token="sample_token nuchit"
    - 
-7. Checkout
+8. Checkout
    - ...Next step
    - 
-8. Shipping
-   - 8.1 Display Shipping address
-   - 8.2 Update address
-   - ....Call api *{PUT}* = /cart/address
-   - ....Bearer Token="Token current user login"
-   - ....Body={"addressId": addressId}
+9. Shipping
+   - 9.1 Display Shipping address
+   - 9.2 Update address
+   - ....Call api put = *{host}/cart/address*
+   - ....*Bearer Token={token}*
+   - ....*Body={"addressId": addressId}*
    - 
    - ....http://localhost:8080/cart/address
    - ....Bearer Token="sample_token nuchit"
    - ....Body={"addressId": 1}
    - 
-   - 8.3 view shopping card detail
+   - 9.3 view shopping card detail
+   - ....Call api put = *{host}/cart*
+   - ....*Bearer Token={token}*
+   - 
    - ....Call api *{GET}* = http://localhost:8080/cart
    - ....Bearer Token="sample_token nuchit"
    - 
-9. Payment
-   - Select Payment method=creditCard
-   - 
-10. Confirm to order
-    - 10.1 Update payment method
-    - call api *{PUT}* = http://localhost:8080/cart/paymentMethod
+10. Payment
+    - Select Payment method=creditCard
+    - 
+11. Confirm to order
+    - 11.1 Update payment method
+    - call api put *{host}//cart/paymentMethod*
+    - ....*Bearer Token={token}*
+    - ....*Body={"paymentMethodId": paymentMethodId}*
+    - 
+    - ....http://localhost:8080/cart/paymentMethod
     - ....Body={"paymentMethodId": 1}
     - ....Bearer Token="sample_token nuchit"
     - 
-11. Summary 
-    - 11.1 Summary Order detail
-    - 11.2 call api *{GET}* = http://localhost:8080/cart
+12. Summary 
+    - 12.1 Summary Order detail
+    - 12.2 Call api get *{host}/cart*
+    - .......*Bearer Token={token}*
+    - 
+    - ....http://localhost:8080/cart
     - ....Bearer Token="sample_token nuchit"
+    - 
+13. The end...
     
 Any question?
 ---
