@@ -349,6 +349,9 @@ JANAWAT E-Commerce System architecture
    - ....Bearer Token="sample_token nuchit"
    - ....Body= {"productId": 2, "quantity": 2}
    - 5.3 Reduce the InStock of products
+   - ....productsId=2,
+     - .... ....InStock before = 15
+     - .... ....InStock after  = 13
    - ....productsId=2,InStock=(15-2) = 13
    - 
 6. Show data in basket
