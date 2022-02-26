@@ -318,51 +318,71 @@ JANAWAT E-Commerce System architecture
 **Test Script**
 ---
 1. Login to System 
-   - 1.1. Call api *{POST}* = http://localhost:8080/login
-   - 1.2. .... _Body_ = {"username": "nuchit", "password": "1234"}
+   - 1.1. Call api *{POST}* = /login 
+   - .... http://localhost:8080/login
+   - .... _Body_ = {"username": "nuchit", "password": "1234"}
    - 
 2. Search product by name
    - 2.1 Find Product name=ADIDAS 
-     - Call api *{GET}* = http://localhost:8080/GetProductByName/ADIDAS
+     - Call api *{GET}* = /GetProductByName/{productName}
+     - 
+     - .... http://localhost:8080/GetProductByName/ADIDAS
      - Default display page 1, size = 5 item
-   - 2.2 Select by item ... next step
+   - You can chang page view 
+   - ... call api /GetProductByName/{productName}/{page}
+   - 
+   - .... http://localhost:8080/GetProductByName/ADIDAS/2
    -    
 3. Choose a product
    - 3.1 Select Product by item ...
-   - 3.2 Call api *{GET}* = http://localhost:8080/GetProductById/{productId}
-   - 3.3 view product detail ... next step
+   - 3.2 Call api *{GET}* = /GetProductById/{productId}
+   - 
+   - ....http://localhost:8080/GetProductById/2
+   - ....view product detail Item 2
    - 
 4. Show product detail
    - 4.1 view product item 2
-   - 4.2 Call api *{GET}* = http://localhost:8080/GetProductById/2
+   - 4.2 Call api *{GET}* = /GetProductById/{productId}
+   - 
+   - ....http://localhost:8080/GetProductById/2
    - 
 5. Add product to basket
    - 5.1 Add product to Card ... order quantity = 2
-   - 5.2 call api *{POST}* = http://localhost:8080/cart/items
-   - Body= {"productId": 2, "quantity": 2}
+   - 5.2 call api *{POST}* = /cart/items
+   - ....Body= {"productId": productId, "quantity": quantity}
+   - 
+   - ....http://localhost:8080/cart/items
+   - ....Body= {"productId": 2, "quantity": 2}
+   - 
 6. Show data in basket
    - 6.1 Check product in Shopping card
-   - 6.2 Call api *{GET}* = http://localhost:8080/cart
+   - 6.2 Call api *{GET}* = /cart
+   - ....Bearer Token="Token current user login"
+   - 
+   - ....http://localhost:8080/cart
    - ....Bearer Token="sample_token nuchit"
    - 
 7. Checkout
-   - 7.1 Checkout update address
-   - ....Call api *{PUT}* = http://localhost:8080/cart/address
-   - ....Bearer Token="sample_token nuchit"
-   - ....Body={"addressId": 1}
+   - ...Next step
    - 
 8. Shipping
    - 8.1 Display Shipping address
-   - 8.2 update address
-   - ....Call api *{PUT}* = http://localhost:8080/cart/address
+   - 8.2 Update address
+   - ....Call api *{PUT}* = /cart/address
+   - ....Bearer Token="Token current user login"
+   - ....Body={"addressId": addressId}
+   - 
+   - ....http://localhost:8080/cart/address
    - ....Bearer Token="sample_token nuchit"
    - ....Body={"addressId": 1}
-   - 8.3 view shopping card deatil
+   - 
+   - 8.3 view shopping card detail
    - ....Call api *{GET}* = http://localhost:8080/cart
    - ....Bearer Token="sample_token nuchit"
    - 
 9. Payment
    - Select Payment method=creditCard
+   - 
 10. Confirm to order
     - 10.1 Update payment method
     - call api *{PUT}* = http://localhost:8080/cart/paymentMethod
