@@ -2,18 +2,21 @@ package com.janawatECommerceSystem.janawatECommerceSystem;
 
 import com.janawatECommerceSystem.janawatECommerceSystem.models.*;
 import com.janawatECommerceSystem.janawatECommerceSystem.repository.*;
-import com.janawatECommerceSystem.janawatECommerceSystem.services.PaymentMethodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 @SpringBootApplication
 public class JanawatECommerceSystemApplication {
+
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -37,8 +40,9 @@ public class JanawatECommerceSystemApplication {
     @Autowired
     private ReceiveRepository receiveRepository;
 
-    public static void main(String[] args) {
-        SpringApplication.run(JanawatECommerceSystemApplication.class, args);
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
     }
 
     @PostConstruct
@@ -108,10 +112,17 @@ public class JanawatECommerceSystemApplication {
 
         lsProduct.add(new Product(11, "ADIDAS รองเท้า ULTRABOOST 5.0 DNA...11", "พัฒนาจากห้วงอวกาศ สู่การสร้างสรรค์เพื่อโลกด้วยหัวใจ รองเท้าวิ่งอาดิดาส Ultraboost คู่นี้เฉลิมฉลองแด่การเป็นพันธมิตรร่วมกับ NASA ด้วยตราโครงการ Artemis บนลิ้นรองเท้า สามารถสวมเดินบนท้องถนนในเมือง หรือเก็บขยะริมชายหาดก็ได้ อัปเปอร์ผ้า adidas Primeknit สัมผัสนุ่มโอบกระชับเท้า ประกอบเข้ากับพื้นชั้นล่าง Boost มอบความสบายที่กล้าท้าให้คุณมาพิสูจน์", 1840.0, 50.0, "2022-7-15", 0, 5, 30, "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", new String[]{"http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/2.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/3.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/4.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/5.jpg"}, 1, 1, "ACTIVE", new Date(), null, new String[]{"36", "38", "40", "42", "44", "45", "50"}));
         lsProduct.add(new Product(12, "ADIDAS รองเท้า ULTRABOOST 5.0 DNA...12", "พัฒนาจากห้วงอวกาศ สู่การสร้างสรรค์เพื่อโลกด้วยหัวใจ รองเท้าวิ่งอาดิดาส Ultraboost คู่นี้เฉลิมฉลองแด่การเป็นพันธมิตรร่วมกับ NASA ด้วยตราโครงการ Artemis บนลิ้นรองเท้า สามารถสวมเดินบนท้องถนนในเมือง หรือเก็บขยะริมชายหาดก็ได้ อัปเปอร์ผ้า adidas Primeknit สัมผัสนุ่มโอบกระชับเท้า ประกอบเข้ากับพื้นชั้นล่าง Boost มอบความสบายที่กล้าท้าให้คุณมาพิสูจน์", 1840.0, 50.0, "2022-7-15", 0, 5, 30, "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", new String[]{"http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/2.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/3.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/4.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/5.jpg"}, 1, 1, "ACTIVE", new Date(), null, new String[]{"36", "38", "40", "42", "44", "45", "50"}));
-        lsProduct.add(new Product(13, "ADIDAS รองเท้า ULTRABOOST 5.0 DNA...13", "พัฒนาจากห้วงอวกาศ สู่การสร้างสรรค์เพื่อโลกด้วยหัวใจ รองเท้าวิ่งอาดิดาส Ultraboost คู่นี้เฉลิมฉลองแด่การเป็นพันธมิตรร่วมกับ NASA ด้วยตราโครงการ Artemis บนลิ้นรองเท้า สามารถสวมเดินบนท้องถนนในเมือง หรือเก็บขยะริมชายหาดก็ได้ อัปเปอร์ผ้า adidas Primeknit สัมผัสนุ่มโอบกระชับเท้า ประกอบเข้ากับพื้นชั้นล่าง Boost มอบความสบายที่กล้าท้าให้คุณมาพิสูจน์", 1840.0, 50.0, "2022-7-15", 0, 5, 30, "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", new String[]{"http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/2.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/3.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/4.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/5.jpg"}, 1, 1, "ACTIVE", new Date(), null, new String[]{"36", "38", "40", "42", "44", "45", "50"}));
+        lsProduct.add(new Product(13, "ADIDAS_123", "พัฒนาจากห้วงอวกาศ สู่การสร้างสรรค์เพื่อโลกด้วยหัวใจ รองเท้าวิ่งอาดิดาส Ultraboost คู่นี้เฉลิมฉลองแด่การเป็นพันธมิตรร่วมกับ NASA ด้วยตราโครงการ Artemis บนลิ้นรองเท้า สามารถสวมเดินบนท้องถนนในเมือง หรือเก็บขยะริมชายหาดก็ได้ อัปเปอร์ผ้า adidas Primeknit สัมผัสนุ่มโอบกระชับเท้า ประกอบเข้ากับพื้นชั้นล่าง Boost มอบความสบายที่กล้าท้าให้คุณมาพิสูจน์", 1840.0, 50.0, "2022-7-15", 0, 5, 30, "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", new String[]{"http://supersports-media-live-th.s3.amazonaws.com/product/28/089/1.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/2.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/3.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/4.jpg", "http://supersports-media-live-th.s3.amazonaws.com/product/28/089/5.jpg"}, 1, 1, "ACTIVE", new Date(), null, new String[]{"36", "38", "40", "42", "44", "45", "50"}));
 
 
         productRepository.saveAll(lsProduct);
+
+    }
+
+
+
+    public static void main(String[] args) {
+        SpringApplication.run(JanawatECommerceSystemApplication.class, args);
     }
 
 

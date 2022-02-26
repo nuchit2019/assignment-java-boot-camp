@@ -32,5 +32,20 @@ public class UserService {
         return userToken.decodeToken(token);
     }
 
+    public void register(User newUser) {
+        userRepository.save(newUser);
+    }
 
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public void setUserToken(UserToken userToken) {
+        this.userToken = userToken;
+    }
 }
+

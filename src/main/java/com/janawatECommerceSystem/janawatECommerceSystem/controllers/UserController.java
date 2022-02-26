@@ -27,9 +27,4 @@ public class UserController {
         return loginResponse;
     }
 
-    @GetMapping("/CurrentUser")
-    public CurrentUserResponse CurrentUser(@RequestHeader("Authorization") String token) {
-        return new CurrentUserResponse(userService.getUserByToken(token));
-    }
-
 }

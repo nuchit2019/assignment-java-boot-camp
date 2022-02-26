@@ -1,6 +1,8 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.models;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductResponse {
     private int id;
     private String productName;

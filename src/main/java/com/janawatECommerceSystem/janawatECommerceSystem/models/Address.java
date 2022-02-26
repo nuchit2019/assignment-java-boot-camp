@@ -21,12 +21,6 @@ public class Address {
     public Address() {
     }
 
-    /*
-    Address address = new Address(1, "Test Address", "", "", "Bangkok", "10300");
-    Address address = new Address("Santhapon Sripilaipong", "Somewhere in Thailand", "12345", "Somewhere", "Krung Thep Maha Nakhon (Bangkok)", "0999999999");
-
-
-     */
 
     public Address(int id, String fullName, String address, String phone, String district, String province, String postCode) {
         this.id = id;
@@ -113,7 +107,6 @@ public class Address {
     }
 
     public String getFullAddress() {
-
 
         String fullAddress =
                 this.fullName + "Name: " +

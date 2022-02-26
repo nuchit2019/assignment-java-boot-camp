@@ -1,6 +1,7 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class CartItem  implements Serializable {
     private int productId;
@@ -12,6 +13,15 @@ public class CartItem  implements Serializable {
     public CartItem(int productId, int quantity) {
         this.productId = productId;
         this.quantity = quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CartItem cartItem = (CartItem) o;
+        return Objects.equals(productId, cartItem.productId)
+                && Objects.equals(quantity, cartItem.quantity);
     }
 
     public int getProductId() {

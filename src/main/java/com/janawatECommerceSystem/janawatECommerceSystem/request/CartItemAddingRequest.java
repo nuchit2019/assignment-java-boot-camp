@@ -1,32 +1,36 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.request;
 
+import com.janawatECommerceSystem.janawatECommerceSystem.JsonConvertible;
 import com.janawatECommerceSystem.janawatECommerceSystem.models.CartItem;
-import netscape.javascript.JSObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CardItemAddingRequest {
+public class CartItemAddingRequest implements JsonConvertible {
     private int productId;
     private int quantity;
 
-    public CardItemAddingRequest() {
+    public CartItemAddingRequest() {
     }
 
-    public CardItemAddingRequest(int productId, int quantity) {
+    public CartItemAddingRequest(int productId, int quantity) {
         this.productId = productId;
         this.quantity = quantity;
     }
 
-    public String ConvertToJsonString() {
+    @Override
+    public String toJsonString() {
         JSONObject json = new JSONObject();
         try {
             json.put("productId", productId);
             json.put("quantity", quantity);
-        } catch (JSONException ex) {
+        } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
         return json.toString();
     }
+
 
     public int getProductId() {
         return productId;

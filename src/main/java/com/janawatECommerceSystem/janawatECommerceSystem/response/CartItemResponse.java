@@ -1,8 +1,12 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.response;
 
+import com.janawatECommerceSystem.janawatECommerceSystem.JsonConvertible;
 import com.janawatECommerceSystem.janawatECommerceSystem.models.Product;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class CartItemResponse {
+
+public class CartItemResponse implements JsonConvertible {
     private int productId;
     private String productName;
     private int quantity;
@@ -23,12 +27,7 @@ public class CartItemResponse {
 
     public static CartItemResponse ofProduct(Product product, int quantity) {
 
-        System.out.println(" ========= :CartItemResponse: ========= ");
-        System.out.println("product.getId(): " + product.getId());
-        System.out.println("product.getId(): " + product.getId());
-        System.out.println("product.getProductName(): " + product.getProductName());
-        System.out.println("quantity: " + quantity);
-        System.out.println(" product.getPrice(): " + product.getPrice());
+
 
 
         return new CartItemResponse(
@@ -37,6 +36,19 @@ public class CartItemResponse {
                 quantity,
                 product.getPrice());
 
+    }
+
+    @Override
+    public String toJsonString() {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("productId", productId);
+            json.put("quantity", quantity);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return json.toString();
     }
 
     public int getProductId() {

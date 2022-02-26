@@ -8,11 +8,11 @@
 		<version>2.6.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.janawat-E-Commerce-System</groupId>
-	<artifactId>janawat-E-Commerce-System</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>week1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>janawat-E-Commerce-System</name>
-	<description>janawat-E-Commerce-System project for Spring Boot</description>
+	<name>week1</name>
+	<description>Week1 project for Java Bootcamp by SSripilaipong</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -25,7 +25,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20211205</version>
+		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -36,19 +40,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.6</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20211205</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>

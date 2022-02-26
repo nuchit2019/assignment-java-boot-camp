@@ -1,10 +1,11 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.request;
 
-import com.fasterxml.jackson.core.JacksonException;
+import com.janawatECommerceSystem.janawatECommerceSystem.JsonConvertible;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CartPaymentMethodRequest {
+
+public class CartPaymentMethodRequest implements JsonConvertible {
     private Integer paymentMethodId;
 
     public CartPaymentMethodRequest() {
@@ -22,15 +23,17 @@ public class CartPaymentMethodRequest {
         this.paymentMethodId = paymentMethodId;
     }
 
-    public String convertToJsonString() {
+    @Override
+    public String toJsonString() {
         JSONObject json = new JSONObject();
         try {
             json.put("paymentMethodId", paymentMethodId);
         } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
-
         return json.toString();
-
     }
+
+
 }

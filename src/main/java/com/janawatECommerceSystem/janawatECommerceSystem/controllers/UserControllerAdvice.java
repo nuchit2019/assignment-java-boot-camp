@@ -18,10 +18,10 @@ public class UserControllerAdvice {
     @ExceptionHandler(LoginException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public LoginResponse loginFail(LoginException e){
-        loginResponse.setMessage("Login Fail..."+e.getMessage());
+    public LoginResponse loginFail(LoginException e) {
+        loginResponse.setMessage("Login Fail..." + e.getMessage());
         loginResponse.setToken("");
-        return  loginResponse ;
+        return loginResponse;
     }
 }
 

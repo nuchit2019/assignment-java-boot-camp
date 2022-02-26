@@ -59,19 +59,22 @@ public class Product {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "brand_id", insertable = false, updatable = false)
-
     private Brand brand;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "shop_id", insertable = false, updatable = false)
 
     private Shop shop;
     @ManyToOne(optional = false)
     @JoinColumn(name = "product_model_id", insertable = false, updatable = false)
-
     private ProductModel productModel;
-    @OneToMany(mappedBy = "product_id")
 
+    //@OneToMany(mappedBy = "product_id")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "product_id", cascade = CascadeType.ALL)
     private List<ProductReview> productReviews;
+
+
+    //private Collection<ProductReview> productReviews = new LinkedHashSet<ProductReview>();
 
     public Product() {
     }

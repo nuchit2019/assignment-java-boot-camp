@@ -1,13 +1,13 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.response;
 
-public class CarItemAddedResponse {
 
+public class CartItemAddedResponse {
     private String message;
 
-    public CarItemAddedResponse() {
+    public CartItemAddedResponse() {
     }
 
-    public CarItemAddedResponse(String message) {
+    public CartItemAddedResponse(String message) {
         this.message = message;
     }
 

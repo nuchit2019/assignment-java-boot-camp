@@ -1,9 +1,9 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.controllers;
 
-import com.janawatECommerceSystem.janawatECommerceSystem.request.CardItemAddingRequest;
+import com.janawatECommerceSystem.janawatECommerceSystem.request.CartItemAddingRequest;
 import com.janawatECommerceSystem.janawatECommerceSystem.request.CartPaymentMethodRequest;
 import com.janawatECommerceSystem.janawatECommerceSystem.request.SelectCartAddressRequest;
-import com.janawatECommerceSystem.janawatECommerceSystem.response.CarItemAddedResponse;
+import com.janawatECommerceSystem.janawatECommerceSystem.response.CartItemAddedResponse;
 import com.janawatECommerceSystem.janawatECommerceSystem.response.CartItemsResponse;
 import com.janawatECommerceSystem.janawatECommerceSystem.response.CartSummaryResponse;
 import com.janawatECommerceSystem.janawatECommerceSystem.services.*;
@@ -31,15 +31,15 @@ public class CartController {
     @PostMapping(value = "/cart/items",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public CarItemAddedResponse AddCartItem(
+    public CartItemAddedResponse AddCartItem(
             @RequestHeader(HttpHeaders.AUTHORIZATION) String token,
-            @RequestBody CardItemAddingRequest cardRequest) {
+            @RequestBody CartItemAddingRequest cardRequest) {
 
         /* System.out.println("call.../cart/items"); */
 
         cartService.addItemCart(userToken.decodeToken(token), cardRequest.toCartItem());
 
-        return new CarItemAddedResponse("OK");
+        return new CartItemAddedResponse("OK");
 
     }
 

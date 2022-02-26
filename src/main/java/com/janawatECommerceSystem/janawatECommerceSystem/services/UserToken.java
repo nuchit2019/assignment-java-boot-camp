@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 @Component
 public class UserToken {
+
     public String createTokenByUserName(String username) {
         return String.format("sample_token %s", username);
     }

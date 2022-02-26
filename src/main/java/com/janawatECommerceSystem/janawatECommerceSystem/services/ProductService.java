@@ -23,27 +23,32 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public ProductResponse getProductById(int id) {
+
         Optional<Product> product = productRepository.findById(id);
         if (product.isEmpty()) {
             throw new ProductNotFoundException("Product not found");
         }
+
         ProductResponse productresponse = setProductResponse(product.get());
         return productresponse;
     }
 
 
-    public void adjustProduct(CartItem item){
+    public Integer adjustProduct(CartItem item) {
 
-        Product product  = productRepository.findById(item.getProductId()).get();
+        Product product = productRepository.findById(item.getProductId()).get();
         Integer inStok = product.getInStock() - item.getQuantity();
         product.setInStock(inStok);
+
         productRepository.save(product);
+
+        return inStok;
     }
 
-    public boolean isInstokCanOrder(CartItem item){
+    public boolean isInstokCanOrder(CartItem item) {
 
-        Product product  = productRepository.findById(item.getProductId()).get();
-        if( product.getInStock() >= item.getQuantity())
+        Product product = productRepository.findById(item.getProductId()).get();
+        if (product.getInStock() >= item.getQuantity())
             return true;
 
         return false;
@@ -51,9 +56,9 @@ public class ProductService {
 
 
     public List<ProductResponse> getProductsByName(String productName, int pageNumber) {
+
         int pageSize = 5;
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
-
         Page<Product> productList = productRepository.findByProductNameContains(productName, pageable);
 
         List<ProductResponse> productsResponse =
@@ -69,7 +74,6 @@ public class ProductService {
         //int pageNumber = 1;
         int pageSize = 5;
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
-
         Page<Product> products = productRepository.findAll(pageable);
 
         List<ProductResponse> productsResponse =
@@ -79,6 +83,13 @@ public class ProductService {
 
         return productsResponse;
     }
+
+    public Optional<Product> getProductsByName(String name) {
+
+        System.out.println("ProductService...getProductsAll_1");
+        return productRepository.findByProductName(name);
+    }
+
 
 
     private ProductResponse setProductResponse(Product product) {
@@ -117,4 +128,9 @@ public class ProductService {
         return productRepository.findById(productId).orElse(null);
     }
 
+
+
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 }

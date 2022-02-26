@@ -22,4 +22,11 @@ public class PaymentService {
         return true;
     }
 
+    public PaymentMethodRepository getPaymentMethodRepository() {
+        return paymentMethodRepository;
+    }
+
+    public void setPaymentMethodRepository(PaymentMethodRepository paymentMethodRepository) {
+        this.paymentMethodRepository = paymentMethodRepository;
+    }
 }

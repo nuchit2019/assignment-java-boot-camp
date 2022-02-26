@@ -1,10 +1,12 @@
 package com.janawatECommerceSystem.janawatECommerceSystem.request;
 
 
+import com.janawatECommerceSystem.janawatECommerceSystem.JsonConvertible;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SelectCartAddressRequest {
+
+public class SelectCartAddressRequest  implements JsonConvertible {
     private Integer addressId;
 
     public SelectCartAddressRequest() {
@@ -14,6 +16,7 @@ public class SelectCartAddressRequest {
         this.addressId = addressId;
     }
 
+    @Override
     public String toJsonString() {
         JSONObject json = new JSONObject();
         try {

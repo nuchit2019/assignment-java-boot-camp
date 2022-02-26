@@ -16,6 +16,22 @@ public class AddressService {
     @Autowired
     private AddressRepository addressRepository;
 
+    public ReceiveRepository getReceiveRepository() {
+        return receiveRepository;
+    }
+
+    public void setReceiveRepository(ReceiveRepository receiveRepository) {
+        this.receiveRepository = receiveRepository;
+    }
+
+    public AddressRepository getAddressRepository() {
+        return addressRepository;
+    }
+
+    public void setAddressRepository(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
+
     public Address getDefaulAddress(String username) {
         return receiveRepository
                 .findById(username)
@@ -37,6 +53,7 @@ public class AddressService {
 
 
     public boolean isMyAddress(String username, Integer addressId) {
+        //Sample data
         return true;
     }
 
