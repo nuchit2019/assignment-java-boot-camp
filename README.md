@@ -318,41 +318,35 @@ JANAWAT E-Commerce System architecture
 **Test Script**
 ---
 1. Login to System 
-   - 1.1. Call api *{POST}* = /login 
+   - 1.1. Call api *{POST}* 
    - .... http://localhost:8080/login
    - .... _Body_ = {"username": "nuchit", "password": "1234"}
    - 
 2. Search product by name
    - 2.1 Find Product name=ADIDAS 
-     - Call api *{GET}* = /GetProductByName/{productName}
-     - 
-     - .... http://localhost:8080/GetProductByName/ADIDAS
+     - Call api *{GET}*     - 
+     - ....http://localhost:8080/GetProductByName/ADIDAS
      - Default display page 1, size = 5 item
-   - You can chang page view 
-   - ... call api /GetProductByName/{productName}/{page}
-   - 
-   - .... http://localhost:8080/GetProductByName/ADIDAS/2
+   - You can chang page view ...page default to page 2
+   - ... http://localhost:8080/GetProductByName/ADIDAS/2
    -    
 3. Choose a product
-   - 3.1 Select Product by item ...
-   - 3.2 Call api *{GET}* = /GetProductById/{productId}
-   - 
-   - ....http://localhost:8080/GetProductById/2
-   - ....view product detail Item 2
+   - 3.1 Select Product by item 2
+   - 3.2 Next step
    - 
 4. Show product detail
-   - 4.1 view product item 2
-   - 4.2 Call api *{GET}* = /GetProductById/{productId}
-   - 
+   - 4.1 View detail product item 2
+   - 4.2 Call api *{GET}*  
    - ....http://localhost:8080/GetProductById/2
    - 
 5. Add product to basket
    - 5.1 Add product to Card ... order quantity = 2
-   - 5.2 call api *{POST}* = /cart/items
-   - ....Body= {"productId": productId, "quantity": quantity}
-   - 
+   - 5.2 call api *{POST}* 
    - ....http://localhost:8080/cart/items
+   - ....Bearer Token="sample_token nuchit"
    - ....Body= {"productId": 2, "quantity": 2}
+   - 5.3 Reduce the InStock of products
+   - ....productsId=2,InStock=(15-2) = 13
    - 
 6. Show data in basket
    - 6.1 Check product in Shopping card
