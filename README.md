@@ -120,7 +120,7 @@ JANAWAT E-Commerce System architecture
    - .... http://localhost:8080/login
    - .... _Body_ = {"username": "nuchit", "password": "1234"}
    - 1.2 Return tokens
-     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/1.jpg?raw=true)
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/01.jpg?raw=true)
 3. Search product by name
    - 3.1 Find Product name=ADIDAS 
      - Call api get *{host}/GetProductByName/{productName}*  
