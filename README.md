@@ -113,21 +113,18 @@ JANAWAT E-Commerce System architecture
 **Test Script**
 ---
 1. Start...
-2. Login to System
+2. Login to System 
    - 1.1. Call api post *{host}/login*
    - .... *Body= {"username": username, "password":password}*
    - 
    - .... http://localhost:8080/login
    - .... _Body_ = {"username": "nuchit", "password": "1234"}
    - 1.2 Return tokens
-![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/1.jpg?raw=true)
-   - 
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/1.jpg?raw=true)
 3. Search product by name
-
    - 3.1 Find Product name=ADIDAS 
      - Call api get *{host}/GetProductByName/{productName}*  
- ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/2.jpg?raw=true)
-     - 
+       ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/2.jpg?raw=true)
      - ....http://localhost:8080/GetProductByName/ADIDAS
      - Default display page 1, size = 5 item
    - 3.2 You can chang page view ...page default to page ??
@@ -139,22 +136,21 @@ JANAWAT E-Commerce System architecture
    - ... http://localhost:8080/GetProductByName/ADIDAS/3
    -    
 4. Choose a product
-   ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/3.jpg?raw=true)
    - 4.1 Select Product by item 2
    - 4.2 Next step
-   - 
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/3.jpg?raw=true)
 5. Show product detail
-   ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/22.jpg?raw=true)
    - 5.1 View detail product item 2
    - 5.2 Call api get *{host}/GetProductById/{productId}*  
    - ....http://localhost:8080/GetProductById/2
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/22.jpg?raw=true)
    - 
-7. Add product to basket
+6. Add product to basket
    - 6.1 Add product to Card ... order quantity = 2
    - 6.2 call api post *{host}/cart/items* 
    - ....*Bearer Token="{token}"*
    - ....*Body= {"productId":productId, "quantity":quantity}*
-![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/5.jpg?raw=true)
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/5.jpg?raw=true)
    - ....http://localhost:8080/cart/items
    - ....Bearer Token="sample_token nuchit"
    - ....Body= {"productId": 2, "quantity": 2}
@@ -163,42 +159,43 @@ JANAWAT E-Commerce System architecture
      - .... ....InStock before = 15
      - .... ....InStock after  = 13
    - ....productsId=2,InStock=(15-2) = 13
-![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/7.jpg?raw=true)
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/7.jpg?raw=true)
    - 
-8. Show data in basket
+7. Show data in basket
    - 7.1 Check product in Shopping card
    - 7.2 Call api get = *{host}/cart*
    - ....*Bearer Token={token}*
    - 
    - ....http://localhost:8080/cart
    - ....Bearer Token="sample_token nuchit"
-![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/6.jpg?raw=true)
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/6.jpg?raw=true)
    - 
-9. Checkout
+8. Checkout
    - ...Next step
    - 
-10. Shipping
-    - 9.1 Display Shipping address
-    - 9.2 Update address
-    - ....Call api put = *{host}/cart/address*
-    - ....*Bearer Token={token}*
-    - ....*Body={"addressId": addressId}*
-![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/8.jpg?raw=true)
-    - ....http://localhost:8080/cart/address
-    - ....Bearer Token="sample_token nuchit"
-    - ....Body={"addressId": 1}
-    - 
-    - 9.3 view shopping card detail
-    - ....Call api put = *{host}/cart*
-    - ....*Bearer Token={token}*
-    - 
-    - ....Call api *{GET}* = http://localhost:8080/cart
-    - ....Bearer Token="sample_token nuchit"
-    - 
-11. Payment
+9. Shipping
+   - 9.1 Display Shipping address
+   - 9.2 Update address
+   - ....Call api put = *{host}/cart/address*
+   - ....*Bearer Token={token}*
+   - ....*Body={"addressId": addressId}*
+   - 
+   - ....http://localhost:8080/cart/address
+   - ....Bearer Token="sample_token nuchit"
+   - ....Body={"addressId": 1}
+   - 
+   - 9.3 view shopping card detail
+   - ....Call api put = *{host}/cart*
+   - ....*Bearer Token={token}*
+   - 
+   - ....Call api *{GET}* = http://localhost:8080/cart
+   - ....Bearer Token="sample_token nuchit"
+     ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/8.jpg?raw=true)
+   - 
+10. Payment
     - Select Payment method=creditCard
     - 
-12. Confirm to order
+11. Confirm to order
     - 11.1 Update payment method
     - call api put *{host}//cart/paymentMethod*
     - ....*Bearer Token={token}*
@@ -207,17 +204,16 @@ JANAWAT E-Commerce System architecture
     - ....http://localhost:8080/cart/paymentMethod
     - ....Body={"paymentMethodId": 1}
     - ....Bearer Token="sample_token nuchit"
-![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/9.jpg?raw=true)
-13. Summary 
+      ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/9.jpg?raw=true)
+12. Summary 
     - 12.1 Summary Order detail
     - 12.2 Call api get *{host}/cart*
     - .......*Bearer Token={token}*
     - 
     - ....http://localhost:8080/cart
     - ....Bearer Token="sample_token nuchit"
-![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/8.jpg?raw=true)
-    - 
-14. The end...
+      ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/blob/main/images/10.jpg?raw=true)
+13. The end...
     
 Any question?
 ---
