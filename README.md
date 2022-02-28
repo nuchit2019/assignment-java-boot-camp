@@ -113,7 +113,8 @@ JANAWAT E-Commerce System architecture
 **Test Script**
 ---
 1. Start...
-2. Login to System 
+2. Login to System
+   ![alt text](https://github.com/nuchit2019/assignment-java-boot-camp/images/1.jpg?raw=true)
    - 1.1. Call api post *{host}/login*
    - .... *Body= {"username": username, "password":password}*
    - 
@@ -121,7 +122,7 @@ JANAWAT E-Commerce System architecture
    - .... _Body_ = {"username": "nuchit", "password": "1234"}
    - 1.2 Return tokens 
    - 
-3. Search product by name
+4. Search product by name
    - 3.1 Find Product name=ADIDAS 
      - Call api get *{host}/GetProductByName/{productName}*  
      - 
@@ -135,16 +136,16 @@ JANAWAT E-Commerce System architecture
    - ...to page 3
    - ... http://localhost:8080/GetProductByName/ADIDAS/3
    -    
-4. Choose a product
+5. Choose a product
    - 4.1 Select Product by item 2
    - 4.2 Next step
    - 
-5. Show product detail
+6. Show product detail
    - 5.1 View detail product item 2
    - 5.2 Call api get *{host}/GetProductById/{productId}*  
    - ....http://localhost:8080/GetProductById/2
    - 
-6. Add product to basket
+7. Add product to basket
    - 6.1 Add product to Card ... order quantity = 2
    - 6.2 call api post *{host}/cart/items* 
    - ....*Bearer Token="{token}"*
@@ -159,7 +160,7 @@ JANAWAT E-Commerce System architecture
      - .... ....InStock after  = 13
    - ....productsId=2,InStock=(15-2) = 13
    - 
-7. Show data in basket
+8. Show data in basket
    - 7.1 Check product in Shopping card
    - 7.2 Call api get = *{host}/cart*
    - ....*Bearer Token={token}*
@@ -167,31 +168,31 @@ JANAWAT E-Commerce System architecture
    - ....http://localhost:8080/cart
    - ....Bearer Token="sample_token nuchit"
    - 
-8. Checkout
+9. Checkout
    - ...Next step
    - 
-9. Shipping
-   - 9.1 Display Shipping address
-   - 9.2 Update address
-   - ....Call api put = *{host}/cart/address*
-   - ....*Bearer Token={token}*
-   - ....*Body={"addressId": addressId}*
-   - 
-   - ....http://localhost:8080/cart/address
-   - ....Bearer Token="sample_token nuchit"
-   - ....Body={"addressId": 1}
-   - 
-   - 9.3 view shopping card detail
-   - ....Call api put = *{host}/cart*
-   - ....*Bearer Token={token}*
-   - 
-   - ....Call api *{GET}* = http://localhost:8080/cart
-   - ....Bearer Token="sample_token nuchit"
-   - 
-10. Payment
+10. Shipping
+    - 9.1 Display Shipping address
+    - 9.2 Update address
+    - ....Call api put = *{host}/cart/address*
+    - ....*Bearer Token={token}*
+    - ....*Body={"addressId": addressId}*
+    - 
+    - ....http://localhost:8080/cart/address
+    - ....Bearer Token="sample_token nuchit"
+    - ....Body={"addressId": 1}
+    - 
+    - 9.3 view shopping card detail
+    - ....Call api put = *{host}/cart*
+    - ....*Bearer Token={token}*
+    - 
+    - ....Call api *{GET}* = http://localhost:8080/cart
+    - ....Bearer Token="sample_token nuchit"
+    - 
+11. Payment
     - Select Payment method=creditCard
     - 
-11. Confirm to order
+12. Confirm to order
     - 11.1 Update payment method
     - call api put *{host}//cart/paymentMethod*
     - ....*Bearer Token={token}*
@@ -201,7 +202,7 @@ JANAWAT E-Commerce System architecture
     - ....Body={"paymentMethodId": 1}
     - ....Bearer Token="sample_token nuchit"
     - 
-12. Summary 
+13. Summary 
     - 12.1 Summary Order detail
     - 12.2 Call api get *{host}/cart*
     - .......*Bearer Token={token}*
@@ -209,7 +210,7 @@ JANAWAT E-Commerce System architecture
     - ....http://localhost:8080/cart
     - ....Bearer Token="sample_token nuchit"
     - 
-13. The end...
+14. The end...
     
 Any question?
 ---
